@@ -1,0 +1,13 @@
+.main-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #1d2730;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .45);
+    width: 100%
+}
+@media (min-width:768px) {
+    .main-header {
+        height: 100px
+    }
+}

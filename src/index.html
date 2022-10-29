@@ -1,0 +1,1277 @@
+<!doctype html>
+<html class="scrollbar-dark" lang="en" xmlns:ga="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Review</title>
+    <link rel="stylesheet" href="./input.css">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(to right, #3a7bd5, #3a6073);
+            font-family: "Ralway", sans-serif;
+            height: 100hv;
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .center button {
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+            background: #f5f5f5;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .popup {
+            position: absolute;
+            top: -150%;
+            left: 50%;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(1.25);
+            width: 380px;
+            padding: 20px 30px;
+            background: #fff;
+            box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            transition: top 0ms ease-in-out 200ms,
+                opacity 200ms ease-in-out 0ms,
+                transform 20ms ease-in-out 0ms;
+        }
+
+        .popup.active {
+            top: 50%;
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            transition: top 0ms ease-in-out 0ms,
+                opacity 200ms ease-in-out 0ms,
+                transform 20ms ease-in-out 0ms;
+        }
+
+        .popup .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 15px;
+            height: 15px;
+            background-color: #888;
+            color: #eee;
+            text-align: center;
+            line-height: 15px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        .popup .form h2 {
+            text-align: center;
+            color: #222;
+            margin: 10px 0px 20px;
+            font-size: 25px;
+        }
+
+        .popup .form .form-element {
+            margin: 15px 0px;
+        }
+
+        .popup .form .form-element label {
+            font-size: 14px;
+            color: #222;
+        }
+
+        .popup .form .form-element input[type="text"],
+        .popup .form .form-element input[type="password"] {
+            margin-top: 5px;
+            display: block;
+            width: 100%;
+            padding: 10px;
+            outline: none;
+            border-radius: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        .popup .form .form-element input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .popup .form .form-element button {
+            width: 100%;
+            height: 40px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            background: #222;
+            color: #f5f5f5;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .popup .form .form-element a {
+            display: block;
+            text-align: right;
+            font-size: 15px;
+            color: #1a79ca;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+    <script>
+        function loadScript(src, done) {
+            var js = document.createElement('script');
+            js.src = src;
+            if (done) {
+                js.onload = function() {
+                    done();
+                };
+                js.onerror = function() {
+                    done(new Error('Failed to load script ' + src));
+                };
+                js.onreadystatechange = function() {
+                    done();
+                };
+            }
+            document.head.appendChild(js);
+        }
+    </script>
+    <script>
+        function browserSupportsAllFeatures() {
+            return Array.prototype.entries && window.IntersectionObserver && window.fetch && 'scrollBehavior' in
+                document.documentElement.style;
+        }
+
+        function lCss(u, m) {
+            var l = document.createElement('link');
+            l.rel = 'stylesheet';
+            l.type = 'text/css';
+            l.href = u;
+            l.media = m;
+            document.getElementsByTagName('head')[0].appendChild(l)
+            if (document.cookie.split(';').filter(function(item) {
+                    return item.indexOf('restCSSIsCached=') >= 0
+                }).length === 0) {
+                var date = new Date();
+                date.setTime(date.getTime() + (7 * 24 * 60 * 60 * 1000));
+                document.cookie = "restCSSIsCached=true; expires=" + date.toGMTString() + "; path=/";
+            }
+        }
+    </script>
+
+    <link rel="stylesheet"
+        href="https://static.casino.guru/res/2e51318a32a0ddedff226a7c2069633ba/build/app-games.rest.min.css">
+
+    <script src="https://static.casino.guru/res/7fd019edd819ae08e518eb46d182385da/build/vendor.js"
+        type="text/javascript" async crossorigin="*"></script>
+
+    <script>
+        if (browserSupportsAllFeatures()) {
+            loadScript("https://static.casino.guru/res/069dd06cdc3a8202eac9641940ccc4a3a/build/app.js");
+            loadScript("https://static.casino.guru/res/20284658ad9482e9066ea08b4d090c5ea/build/appGame.js");
+        } else {
+            loadScript("https://static.casino.guru/res/21b8d95e2d656bcad3061725c6689001a/build/polyfills.js",
+                function() {
+                    loadScript("https://static.casino.guru/res/069dd06cdc3a8202eac9641940ccc4a3a/build/app.js");
+                    loadScript("https://static.casino.guru/res/20284658ad9482e9066ea08b4d090c5ea/build/appGame.js");
+                });
+        }
+    </script>
+</head>
+
+<body data-module="scroll-interaction-tracker">
+    <div class="popup">
+        <div class="close-btn">
+            &times;
+        </div>
+        <div class="form">
+            <h2>Log in</h2>
+            <div class="form-element">
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="Enter email">
+            </div>
+            <div class="form-element">
+                <label for="email">Password</label>
+                <input type="password" id="password" placeholder="Enter password">
+            </div>
+            <div class="form-element">
+                <input type="checkbox" id="remember-me">
+                <label for="remember-me">Remember me</label>
+            </div>
+            <div class="form-element">
+                <button>Sign in</button>
+            </div>
+            <div class="form-elemnt">
+                <a href="#">Forgot Password?</a>
+            </div>
+        </div>
+    </div>
+
+    <input type="hidden" value="17737402242601" name="globalVisitorId" id="globalVisitorId">
+    <div class="js-fb-login"></div>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXXGSW" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <input type="hidden" value="https://static.casino.guru/res/c8dbc443b1476a4adbb9ba3d0added50a/build/" id="webRoot">
+
+    <noscript><a href="https://www.clickcease.com" rel="nofollow noopener" target="_blank"><img
+                src="https://monitor.clickcease.com/stats/stats.aspx" alt="ClickCease"></a></noscript>
+
+    <script type="text/javascript">
+        var appendedSvgSprite = [];
+        if (!Array.prototype.includes) {
+            Array.prototype.includes = function(search, start) {
+                'use strict';
+                if (search instanceof RegExp) {
+                    throw TypeError('first argument must not be a RegExp');
+                }
+                if (start === undefined) {
+                    start = 0;
+                }
+                return this.indexOf(search, start) !== -1;
+            };
+        }
+
+        function appendSvgSprite(svgFile) {
+            var pathArray = svgFile.split('/');
+            var fileName = pathArray[pathArray.length - 1];
+            if (appendedSvgSprite.includes(fileName)) return;
+            var ajax = new XMLHttpRequest();
+            ajax.open("GET", svgFile, true);
+            ajax.send();
+            ajax.onload = function(e) {
+                if (e.currentTarget.status === 200) {
+                    var div = document.createElement("div");
+                    div.classList.add('svg-loader');
+                    div.innerHTML = ajax.responseText;
+                    if (appendedSvgSprite.includes(fileName)) return;
+                    document.body.insertBefore(div, document.body.childNodes[0]);
+                    appendedSvgSprite.push(fileName);
+                }
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        appendSvgSprite("https://static.casino.guru/res/4b728454cb98c987c0db76bf33b32dfaa/build/icons-base.svg");
+        appendSvgSprite("https://static.casino.guru/res/2d09487664ba1698c24ad5f4b37acd89a/build/icons-filter.svg");
+        appendSvgSprite("https://static.casino.guru/res/eed21e0a8501408563081f08eec7051aa/build/icons-casino.svg");
+        appendSvgSprite("https://static.casino.guru/res/ac17af17499109b33eefa5f798a65a0aa/build/icons-reputation.svg");
+    </script>
+    <!--Header goes here-->
+    <header class="main-header main-header-b js-main-header">
+        <!-- .container -->
+        <div class="col-menu">
+            <nav class="menu group" data-module="menu">
+                <fade-burger class="menu-icon-label js-menu-icon-label" size="22"
+                    data-ga-id="general_header_elm_menuHamburger"></fade-burger>
+                <div class="menu-logo" data-ga-id="general_header_elm_logo">
+                    <a href="https://casino.guru/" alt="">
+                        <img src="https://static.casino.guru/res/cc26f89e34ef12cd4dac6731c76aaaa5a/images/casinoguru_logo.svg"
+                            alt="#" width="90" height="40">
+                    </a>
+                </div>
+                <div class="header-search-wrapper search-box-dark" data-module="search-box" data-scroll-top="true">
+                    <div class="header-search js-search-box-input-wrapper search-box-input-wrapper-dark">
+                        <input class="js-search-box-input header-search-input js-ga-change-event search-box-input-dark"
+                            placeholder="Search for casinos, games, and more" type="text"
+                            data-ga-id-change="general_header_general_search"
+                            data-ga-id="general_header_general_header_input_searchBox">
+                        <span class="menu-link-search search-ico-wrapper-dark"
+                            data-ga-id="general_header_general_header_btn_searchBtn">
+                            <svg class="c-white" height="18" width="18">
+                                <use xlink:href="#base_ui_ico_search" />
+                            </svg>
+                        </span>
+                        <span class="js-header-search-close header-search-close flex items-center">
+                            <svg class="c-white" height="18" width="18">
+                                <use xlink:href="#base_ui_ico_close" />
+                            </svg>
+                        </span>
+                        <input id="search-box--site-url" name="pageCountryId" type="hidden" value="42">
+                    </div>
+                </div>
+
+                <div class="menu-right">
+                    <span class="menu-lang js-menu-lang menu-right-btn" data-mouseflow-tag="Language_modal"
+                        data-module="modals/language-modal-init" data-ga-id="general_header_btn_langSettings">
+                        <span>EN</span>
+                        <label class="mx-xs">|</label>
+                        <i class="flag-icon flag-icon-kh"></i>
+                    </span>
+                    <div class="menu-right-link menu-right-btn">
+
+                        <div class="text">
+                            <button id="show-login" style="color: #fff; font-weight: bold; ">Login</button>
+                        </div>
+
+                    </div>
+
+                    <a href="" class="menu-right-signup menu-right-btn">
+                        <div class="menu-right-link">
+                            <span class="text">Sign up</span>
+                        </div>
+                    </a>
+
+                    <span class="menu-link-search js-header-search-toggle" data-ga-id="general_header_btn_searchBtn">
+                        <svg class="c-white" height="22" width="22">
+                            <use xlink:href="#base_ui_ico_search" />
+                        </svg>
+                    </span>
+                </div>
+
+                <div class="menu-login-popup menu-expandable-popup js-menu-login-popup">
+                    <div class="popup-modal-exit-button">
+                        <svg class="c-grey-4 js-modal-close-button">
+                            <use xlink:href="#base_ui_ico_close" />
+                        </svg>
+                    </div>
+                    <div id="appLogin"></div>
+                </div>
+
+                <div class="menu-language-settings-popup menu-expandable-popup js-menu-language-settings-popup">
+                    <div class="menu-language-settings-popup-content">
+
+                        <form action="/frontendService/advancedLanguageSettings/languageCountrySettings" method="post"
+                            accept-charset="utf-8" data-module="language-change">
+                            <input type="hidden" name="siteUrl"
+                                value="https://casino.guru/Classic-Fruit-slot-play-free">
+                            <div class="js-language-modal-content">
+                                <div class="loader mx-auto my-xxl js-loader"></div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+                <div class="menu-collapse js-menu-collapse">
+                    <ul class="menu-nav">
+                        <li></li>
+
+                        <li class="menu-item-0" data-ga-id="general_header_link_menu" data-ga-param="Online Casinos">
+                            <a class="menu-link js-menu-link" href="https://casino.guru/top-online-casinos">
+                                <svg width="24" height="24" class="menu-icon">
+                                    <use xlink:href="#base_category_ico_casinos" />
+                                </svg>
+
+                                Online Casinos
+
+                                <svg class="icon-arrow ml-auto" width="16" height="16">
+                                    <use xlink:href="#base_ui_ico_chevron_down" />
+                                </svg>
+                            </a>
+                            <div class="sub-menu js-sub-menu js-articles-menu">
+                                <div class="sub-menu-wrapper">
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Online casinos</div>
+
+                                        <a href="https://casino.guru/top-online-casinos#tab=RECOMMENDED"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Top online casinos">
+
+                                            Top online casinos
+                                            <svg class="ml-xs c-green" width="12" height="12">
+                                                <use xlink:href="#base_ui_ico_rating_star" />
+                                            </svg>
+
+                                        </a>
+
+                                        <a href="https://casino.guru/new-online-casinos"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Newly opened casinos">
+
+                                            Newly opened casinos
+
+                                        </a>
+
+                                        <a href="https://casino.guru/big-online-casinos"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Big brands">
+
+                                            Big brands
+
+                                        </a>
+
+                                        <a href="https://casino.guru/top-online-casinos#tab=ALL"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="All casinos">
+
+                                            All casinos
+
+                                        </a>
+
+                                    </div>
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Popular filters</div>
+
+                                        <a href="https://casino.guru/top-online-casinos/mobile-casinos#tab=RECOMMENDED"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Mobile-friendly casinos">
+
+                                            Mobile-friendly casinos
+
+                                        </a>
+
+                                        <a href="https://casino.guru/top-online-casinos/bitcoin-cryptocurrency#tab=RECOMMENDED"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Bitcoin/crypto casinos">
+
+                                            Bitcoin/crypto casinos
+
+                                        </a>
+
+                                        <a href="https://casino.guru/best-slots-sites"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Best slots sites">
+
+                                            Best slots sites
+
+                                        </a>
+
+                                        <a href="https://casino.guru/real-money-gambling-sites"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Real money gambling sites">
+
+                                            Real money gambling sites
+
+                                        </a>
+
+                                        <a href="https://casino.guru/reviews"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Casino reviews">
+
+                                            Casino reviews
+
+                                        </a>
+
+                                        <a href="https://casino.guru/top-online-casinos/live-dealer-games"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Live dealer casinos">
+
+                                            Live dealer casinos
+
+                                        </a>
+
+                                    </div>
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Casinos by payment method</div>
+
+                                        <a href="https://casino.guru/top-online-casinos/Neteller-payments#tab=RECOMMENDED"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Neteller casinos">
+
+                                            Neteller casinos
+
+                                        </a>
+
+                                        <a href="https://casino.guru/top-online-casinos/Skrill-payments#tab=RECOMMENDED"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Skrill casinos">
+
+                                            Skrill casinos
+
+                                        </a>
+
+                                        <a href="https://casino.guru/top-online-casinos/PaySafeCard-payments#tab=RECOMMENDED"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="PaySafeCard casinos">
+
+                                            PaySafeCard casinos
+
+                                        </a>
+
+                                        <a href="https://casino.guru/top-online-casinos/ecopayz-payments#tab=RECOMMENDED"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="ecoPayz casinos">
+
+                                            ecoPayz casinos
+
+                                        </a>
+
+                                        <a href="https://casino.guru/top-online-casinos/mastercard-payments#tab=RECOMMENDED"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Mastercard casinos">
+
+                                            Mastercard casinos
+
+                                        </a>
+
+                                    </div>
+
+                                    <picture>
+                                        <source data-dom-ready-src
+                                            data-srcset="https://static.casino.guru/res/202102221431/images/main-menu-bg-images/menu-img-casinos.png"
+                                            media="(min-width: 768px)"><img alt="menu-img-casinos.png"
+                                            data-src="https://static.casino.guru/res/202102221431/images/main-menu-bg-images/menu-img-casinos.png"
+                                            width="161" height="261"></picture>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="menu-item-1" data-ga-id="general_header_link_menu" data-ga-param="Games">
+                            <a class="menu-link js-menu-link" href="https://casino.guru/free-casino-games">
+                                <svg width="24" height="24" class="menu-icon">
+                                    <use xlink:href="#base_category_ico_games" />
+                                </svg>
+
+                                Games
+
+                                <svg class="icon-arrow ml-auto" width="16" height="16">
+                                    <use xlink:href="#base_ui_ico_chevron_down" />
+                                </svg>
+                            </a>
+                            <div class="sub-menu js-sub-menu js-articles-menu">
+                                <div class="sub-menu-wrapper">
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">All games</div>
+
+                                        <a href="https://casino.guru/free-casino-games"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Free casino games">
+
+                                            Free casino games
+                                            <svg class="ml-xs c-green" width="12" height="12">
+                                                <use xlink:href="#base_ui_ico_rating_star" />
+                                            </svg>
+
+                                        </a>
+
+                                        <a href="https://casino.guru/free-casino-games/most-popular#sort_by=RECOMMENDED_DESC"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Most popular games">
+
+                                            Most popular games
+
+                                        </a>
+
+                                        <a href="https://casino.guru/free-casino-games/new#sort_by=LATEST_DESC"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Latest games">
+
+                                            Latest games
+
+                                        </a>
+
+                                        <a href="https://casino.guru/free-casino-games/recently-reviewed"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Recently reviewed games">
+
+                                            Recently reviewed games
+
+                                        </a>
+
+                                        <a href="https://casino.guru/free-casino-games/highest-rtp#sort_by=RTP_DESC"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Highest RTP">
+
+                                            Highest RTP
+
+                                        </a>
+
+                                    </div>
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Game by type</div>
+
+                                        <a href="https://casino.guru/free-casino-games/slots"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Slots">
+
+                                            Slots
+
+                                        </a>
+
+                                        <a href="https://casino.guru/free-casino-games/roulette"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Roulette">
+
+                                            Roulette
+
+                                        </a>
+
+                                        <a href="https://casino.guru/free-casino-games/video-poker"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Video poker">
+
+                                            Video poker
+
+                                        </a>
+
+                                        <a href="https://casino.guru/free-casino-games/blackjack"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Blackjack">
+
+                                            Blackjack
+
+                                        </a>
+
+                                        <a href="https://casino.guru/free-casino-games/scratch-cards"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Scratch cards">
+
+                                            Scratch cards
+
+                                        </a>
+
+                                    </div>
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Games by provider</div>
+
+                                        <a href="https://casino.guru/free-casino-games/netent"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="NetEnt games">
+
+                                            NetEnt games
+
+                                        </a>
+
+                                        <a href="https://casino.guru/free-casino-games/novomatic"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Novomatic games">
+
+                                            Novomatic games
+
+                                        </a>
+
+                                        <a href="https://casino.guru/free-casino-games/egt"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="EGT games">
+
+                                            EGT games
+
+                                        </a>
+
+                                        <a href="https://casino.guru/free-casino-games/nolimit-city"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Nolimit City games">
+
+                                            Nolimit City games
+
+                                        </a>
+
+                                        <a href="https://casino.guru/free-casino-games/microgaming"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Microgaming games">
+
+                                            Microgaming games
+
+                                        </a>
+
+                                        <a href="https://casino.guru/game-providers"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="All game providers">
+
+                                            All game providers
+
+                                        </a>
+
+                                    </div>
+
+                                    <picture>
+                                        <source data-dom-ready-src
+                                            data-srcset="https://static.casino.guru/res/202102221431/images/main-menu-bg-images/menu-img-games.png"
+                                            media="(min-width: 768px)"><img alt="menu-img-games.png"
+                                            data-src="https://static.casino.guru/res/202102221431/images/main-menu-bg-images/menu-img-games.png"
+                                            width="161" height="261"></picture>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="menu-item-2" data-ga-id="general_header_link_menu" data-ga-param="Bonuses">
+                            <a class="menu-link js-menu-link" href="https://casino.guru/online-casino-bonuses">
+                                <svg width="24" height="24" class="menu-icon">
+                                    <use xlink:href="#base_category_ico_bonuses" />
+                                </svg>
+
+                                Bonuses
+
+                                <svg class="icon-arrow ml-auto" width="16" height="16">
+                                    <use xlink:href="#base_ui_ico_chevron_down" />
+                                </svg>
+                            </a>
+                            <div class="sub-menu js-sub-menu js-articles-menu">
+                                <div class="sub-menu-wrapper">
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Bonus type</div>
+
+                                        <a href="https://casino.guru/no-deposit-bonuses-casino"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="No deposit bonuses">
+
+                                            No deposit bonuses
+                                            <svg class="ml-xs c-green" width="12" height="12">
+                                                <use xlink:href="#base_ui_ico_rating_star" />
+                                            </svg>
+
+                                        </a>
+
+                                        <a href="https://casino.guru/best-online-casino-bonus"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Deposit bonuses">
+
+                                            Deposit bonuses
+
+                                        </a>
+
+                                        <a href="https://casino.guru/casino-reload-bonuses"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Reload bonuses">
+
+                                            Reload bonuses
+
+                                        </a>
+
+                                        <a href="https://casino.guru/casino-cashback"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Cashback bonuses">
+
+                                            Cashback bonuses
+
+                                        </a>
+
+                                        <a href="https://casino.guru/online-casino-bonuses"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="All bonuses">
+
+                                            All bonuses
+
+                                        </a>
+
+                                    </div>
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">All bonuses</div>
+
+                                        <a href="https://casino.guru/online-casino-bonuses#tab=EXCLUSIVE_BONUSES"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Exclusive bonuses">
+
+                                            Exclusive bonuses
+
+                                        </a>
+
+                                        <a href="https://casino.guru/online-casino-bonuses#tab=RECOMMENDED"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Recommended bonuses">
+
+                                            Recommended bonuses
+
+                                        </a>
+
+                                        <a href="https://casino.guru/online-casino-bonuses#tab=LATEST_BONUSES"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Latest bonuses">
+
+                                            Latest bonuses
+
+                                        </a>
+
+                                        <a href="https://casino.guru/online-casino-bonuses#tab=LEADING_BRANDS"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Bonuses from big brands">
+
+                                            Bonuses from big brands
+
+                                        </a>
+
+                                    </div>
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">No deposit bonuses</div>
+
+                                        <a href="https://casino.guru/no-deposit-bonuses-casino"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Best no deposit bonuses">
+
+                                            Best no deposit bonuses
+
+                                        </a>
+
+                                        <a href="https://casino.guru/no-deposit-bonuses-casino/new#sort_by=LATEST_DESC"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="New no deposit bonuses">
+
+                                            New no deposit bonuses
+
+                                        </a>
+
+                                        <a href="https://casino.guru/no-deposit-bonuses-casino/exclusive#tab=EXCLUSIVE_BONUSES"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Exclusive no deposit bonuses">
+
+                                            Exclusive no deposit bonuses
+
+                                        </a>
+
+                                    </div>
+
+                                    <picture>
+                                        <source data-dom-ready-src
+                                            data-srcset="https://static.casino.guru/res/202102221431/images/main-menu-bg-images/menu-img-bonuses.png"
+                                            media="(min-width: 768px)"><img alt="menu-img-bonuses.png"
+                                            data-src="https://static.casino.guru/res/202102221431/images/main-menu-bg-images/menu-img-bonuses.png"
+                                            width="161" height="261"></picture>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="menu-item-3" data-ga-id="general_header_link_menu" data-ga-param="Guide">
+                            <a class="menu-link js-menu-link" href="https://casino.guru/introduction-to-online-casinos">
+                                <svg width="24" height="24" class="menu-icon">
+                                    <use xlink:href="#base_category_ico_guides" />
+                                </svg>
+
+                                Guide
+
+                                <svg class="icon-arrow ml-auto" width="16" height="16">
+                                    <use xlink:href="#base_ui_ico_chevron_down" />
+                                </svg>
+                            </a>
+                            <div class="sub-menu js-sub-menu js-articles-menu">
+                                <div class="sub-menu-wrapper">
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Essentials</div>
+
+                                        <a href="https://casino.guru/introduction-to-online-casinos"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Introduction to online casinos">
+
+                                            Introduction to online casinos
+
+                                        </a>
+
+                                        <a href="https://casino.guru/how-to-choose-an-online-casino"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="How to choose a casino">
+
+                                            How to choose a casino
+
+                                        </a>
+
+                                        <a href="https://casino.guru/learn-about-games-of-chance-rtp-variance"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Games of chance: RTP and variance">
+
+                                            Games of chance: RTP and variance
+
+                                        </a>
+
+                                        <a href="https://casino.guru/casino-bonuses"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Bonuses and promotions">
+
+                                            Bonuses and promotions
+
+                                        </a>
+
+                                        <a href="https://casino.guru/problem-gambling"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Responsible gambling and help for problem gamblers">
+
+                                            Responsible gambling and help for problem gamblers
+
+                                        </a>
+
+                                    </div>
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Guides by type of game</div>
+
+                                        <a href="https://casino.guru/how-slot-machines-work-math"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Slot machines">
+
+                                            Slot machines
+
+                                        </a>
+
+                                        <a href="https://casino.guru/roulette-rules-odds-bets"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Roulette">
+
+                                            Roulette
+
+                                        </a>
+
+                                        <a href="https://casino.guru/how-to-play-blackjack-introduction"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Blackjack">
+
+                                            Blackjack
+
+                                        </a>
+
+                                        <a href="https://casino.guru/how-to-play-video-poker"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Video Poker">
+
+                                            Video Poker
+
+                                        </a>
+
+                                        <a href="https://casino.guru/online-scratchcards-how-to"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Online scratchcards">
+
+                                            Online scratchcards
+
+                                        </a>
+
+                                    </div>
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Our best pieces</div>
+
+                                        <a href="https://casino.guru/bonus-hunting"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Bonus hunting">
+
+                                            Bonus hunting
+
+                                        </a>
+
+                                        <a href="https://casino.guru/how-to-beat-slots"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="How to beat slots">
+
+                                            How to beat slots
+
+                                        </a>
+
+                                    </div>
+
+                                    <picture>
+                                        <source data-dom-ready-src
+                                            data-srcset="https://static.casino.guru/res/202102221431/images/main-menu-bg-images/menu-img-guides.png"
+                                            media="(min-width: 768px)"><img alt="menu-img-guides.png"
+                                            data-src="https://static.casino.guru/res/202102221431/images/main-menu-bg-images/menu-img-guides.png"
+                                            width="161" height="261"></picture>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="menu-item-4" data-ga-id="general_header_link_menu" data-ga-param="Complaints">
+                            <a class="menu-link js-menu-link" href="https://casino.guru/complaints">
+                                <svg width="24" height="24" class="menu-icon">
+                                    <use xlink:href="#base_category_ico_complaints" />
+                                </svg>
+
+                                Complaints
+
+                                <svg class="icon-arrow ml-auto" width="16" height="16">
+                                    <use xlink:href="#base_ui_ico_chevron_down" />
+                                </svg>
+                            </a>
+                            <div class="sub-menu js-sub-menu js-articles-menu">
+                                <div class="sub-menu-wrapper">
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Browse complaints</div>
+
+                                        <a href="https://casino.guru/complaints"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Complaints overview">
+
+                                            Complaints overview
+
+                                        </a>
+
+                                        <a href="https://casino.guru/complaints/in_progress"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Opened">
+
+                                            Opened
+
+                                        </a>
+
+                                        <a href="https://casino.guru/complaints/unresolved"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Not solved">
+
+                                            Not solved
+
+                                        </a>
+
+                                        <a href="https://casino.guru/complaints/resolved"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Solved">
+
+                                            Solved
+
+                                        </a>
+
+                                        <a href="https://casino.guru/complaints/rejected"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Rejected">
+
+                                            Rejected
+
+                                        </a>
+
+                                    </div>
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Learn more</div>
+
+                                        <a href="https://casino.guru/complaint-resolution-instructions"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Complaint resolution instructions">
+
+                                            Complaint resolution instructions
+
+                                        </a>
+
+                                    </div>
+
+                                    <picture>
+                                        <source data-dom-ready-src
+                                            data-srcset="https://static.casino.guru/res/202102221431/images/main-menu-bg-images/menu-img-complaints.png"
+                                            media="(min-width: 768px)"><img alt="menu-img-complaints.png"
+                                            data-src="https://static.casino.guru/res/202102221431/images/main-menu-bg-images/menu-img-complaints.png"
+                                            width="161" height="261"></picture>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="menu-item-5" data-ga-id="general_header_link_menu" data-ga-param="Forum">
+                            <a class="menu-link js-menu-link" href="https://casino.guru/forum">
+                                <svg width="24" height="24" class="menu-icon">
+                                    <use xlink:href="#base_category_ico_forum" />
+                                </svg>
+
+                                Forum
+
+                                <svg class="icon-arrow ml-auto" width="16" height="16">
+                                    <use xlink:href="#base_ui_ico_chevron_down" />
+                                </svg>
+                            </a>
+                            <div class="sub-menu js-sub-menu js-articles-menu">
+                                <div class="sub-menu-wrapper">
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Explore the forum</div>
+
+                                        <a href="https://casino.guru/forum" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Forum homepage">
+
+                                            Forum homepage
+
+                                        </a>
+
+                                        <a href="https://casino.guru/forum#tab=1"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Latest Posts">
+
+                                            Latest Posts
+
+                                        </a>
+
+                                        <a href="https://casino.guru/forum#tab=2"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Hot Threads">
+
+                                            Hot Threads
+
+                                        </a>
+
+                                    </div>
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Popular categories</div>
+
+                                        <a href="https://casino.guru/forum/general-gambling-discussion"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="General Gambling Discussion">
+
+                                            General Gambling Discussion
+
+                                        </a>
+
+                                        <a href="https://casino.guru/forum/complaints-discussion"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Complaints Discussion">
+
+                                            Complaints Discussion
+
+                                        </a>
+
+                                        <a href="https://casino.guru/forum/competitions"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Competitions">
+
+                                            Competitions
+
+                                        </a>
+
+                                        <a href="https://casino.guru/forum/bonuses-and-promotions"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Bonuses and Promotions">
+
+                                            Bonuses and Promotions
+
+                                        </a>
+
+                                        <a href="https://casino.guru/forum/casinos"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Casinos">
+
+                                            Casinos
+
+                                        </a>
+
+                                        <a href="https://casino.guru/forum/slots"
+                                            class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Slots">
+
+                                            Slots
+
+                                        </a>
+
+                                    </div>
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Join the community</div>
+
+                                        <a class="link-primary text-bold block js-link js-toggle-menu-login"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Start your own discussion">
+
+                                            Start your own discussion
+
+                                        </a>
+
+                                    </div>
+
+                                    <picture>
+                                        <source data-dom-ready-src
+                                            data-srcset="https://static.casino.guru/res/202102221431/images/main-menu-bg-images/menu-img-forum.png"
+                                            media="(min-width: 768px)"><img alt="menu-img-complaints.png"
+                                            data-src="https://static.casino.guru/res/202102221431/images/main-menu-bg-images/menu-img-forum.png"
+                                            width="161" height="261"></picture>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="menu-item-6" data-ga-id="general_header_link_menu" data-ga-param="User reviews">
+                            <a class="menu-link" href="https://casino.guru/user-reviews">
+                                <svg width="24" height="24" class="menu-icon">
+                                    <use xlink:href="#base_ui_ico_rating_star" />
+                                </svg>
+                                User reviews
+                            </a>
+                        </li>
+                        <li class="menu-item-7" data-ga-id="general_header_link_menu" data-ga-param="News">
+                            <a class="menu-link" href="https://casino.guru/news" target="_blank">
+                                <svg width="24" height="24" class="menu-icon">
+                                    <use xlink:href="#base_ui_ico_press" />
+                                </svg>
+
+                                <span class="relative">
+                                    News
+                                    <span class="tag-new">New</span>
+                                </span>
+
+                            </a>
+
+                        </li>
+
+                        <li class="magic-line">&nbsp;</li>
+
+                        <li></li>
+                        <li class="menu-item hidden-xs hidden-xxs"><span class="menu-link menu-link-search js-search"><i
+                                    class="icon icon-search"></i></span></li>
+
+                        <div class="sgw-toolbar-outside">
+                            <div class="sgw-toolbar-wrapper" id="general_header_element_promoSGW"
+                                data-ga-id="general_header_elm_promoSGW">
+                                <a href="https://casino.guru/test-your-gambling-style" target="_blank"
+                                    class="sgw-toolbar menu-link">
+                                    <span class="menu-icon">
+                                        <svg class="c-white" height="16" width="16">
+                                            <use xlink:href="#base_ui_ico_play_mark" />
+                                        </svg>
+                                    </span>
+                                    <span class="sgw-toolbar-text">
+                                        <span class="hidden-lg">
+                                            Test your gambling
+                                        </span>
+                                        <span class="visible-lg">
+                                            Test your gambling style
+                                        </span>
+                                    </span>
+
+                                </a>
+                            </div>
+                        </div>
+
+                    </ul>
+
+                    <div class="menu-collapse-bottom">
+
+                        <a href="https://casino.guru/about-us">About us</a>
+
+                        <a href="https://casino.guru/terms-and-conditions">Terms of use</a>
+
+                    </div>
+                </div>
+
+                <div class="search-box-results-wrapper relative">
+                    <div class="search-box-results js-search-box-results-placeholder">
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="modal-backdrop js-modal-backdrop"></div>
+
+</body>
+<script src="./script.js"></script>
+
+</html>
