@@ -1,2 +1,2 @@
 # Game-fruid
-Buiding static wesite
+Buiding new static Website for Cashino

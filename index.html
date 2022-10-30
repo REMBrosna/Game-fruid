@@ -1,0 +1,2694 @@
+<!doctype html>
+<html class="scrollbar-dark" lang="en" xmlns:ga="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Game Review</title>
+    <link rel="stylesheet" href="./src/input.css">
+    <link rel="stylesheet" href="./src/login.css">
+    <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
+    <style>
+        a{
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        function loadScript(src, done) {
+            var js = document.createElement('script');
+            js.src = src;
+            if (done) {
+                js.onload = function() {
+                    done();
+                };
+                js.onerror = function() {
+                    done(new Error('Failed to load script ' + src));
+                };
+                js.onreadystatechange = function() {
+                    done();
+                };
+            }
+            document.head.appendChild(js);
+        }
+    </script>
+    <script>
+        function browserSupportsAllFeatures() {
+            return Array.prototype.entries && window.IntersectionObserver && window.fetch && 'scrollBehavior' in
+                document.documentElement.style;
+        }
+
+        function lCss(u, m) {
+            var l = document.createElement('link');
+            l.rel = 'stylesheet';
+            l.type = 'text/css';
+            l.href = u;
+            l.media = m;
+            document.getElementsByTagName('head')[0].appendChild(l)
+            if (document.cookie.split(';').filter(function(item) {
+                    return item.indexOf('restCSSIsCached=') >= 0
+                }).length === 0) {
+                var date = new Date();
+                date.setTime(date.getTime() + (7 * 24 * 60 * 60 * 1000));
+                document.cookie = "restCSSIsCached=true; expires=" + date.toGMTString() + "; path=/";
+            }
+        }
+    </script>
+    <link rel="stylesheet"
+        href="https://static.casino.guru/res/2e51318a32a0ddedff226a7c2069633ba/build/app-games.rest.min.css">
+    <script src="https://static.casino.guru/res/7fd019edd819ae08e518eb46d182385da/build/vendor.js"
+        type="text/javascript" async crossorigin="*"></script>
+    <script>
+        if (browserSupportsAllFeatures()) {
+            loadScript("https://static.casino.guru/res/069dd06cdc3a8202eac9641940ccc4a3a/build/app.js");
+            loadScript("https://static.casino.guru/res/20284658ad9482e9066ea08b4d090c5ea/build/appGame.js");
+        } else {
+            loadScript("https://static.casino.guru/res/21b8d95e2d656bcad3061725c6689001a/build/polyfills.js",
+                function() {
+                    loadScript("https://static.casino.guru/res/069dd06cdc3a8202eac9641940ccc4a3a/build/app.js");
+                    loadScript("https://static.casino.guru/res/20284658ad9482e9066ea08b4d090c5ea/build/appGame.js");
+                });
+        }
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        var appendedSvgSprite = [];
+        if (!Array.prototype.includes) {
+            Array.prototype.includes = function(search, start) {
+                'use strict';
+                if (search instanceof RegExp) {
+                    throw TypeError('first argument must not be a RegExp');
+                }
+                if (start === undefined) {
+                    start = 0;
+                }
+                return this.indexOf(search, start) !== -1;
+            };
+        }
+        
+        function appendSvgSprite(svgFile) {
+            var pathArray = svgFile.split('/');
+            var fileName = pathArray[pathArray.length - 1];
+            if (appendedSvgSprite.includes(fileName)) return;
+            var ajax = new XMLHttpRequest();
+            ajax.open("GET", svgFile, true);
+            ajax.send();
+            ajax.onload = function(e) {
+                if (e.currentTarget.status === 200) {
+                    var div = document.createElement("div");
+                    div.classList.add('svg-loader');
+                    div.innerHTML = ajax.responseText;
+                    if (appendedSvgSprite.includes(fileName)) return;
+                    document.body.insertBefore(div, document.body.childNodes[0]);
+                    appendedSvgSprite.push(fileName);
+                }
+            }
+        }
+        </script>
+    <script type="text/javascript">
+        appendSvgSprite("https://static.casino.guru/res/4b728454cb98c987c0db76bf33b32dfaa/build/icons-base.svg");
+        appendSvgSprite("https://static.casino.guru/res/2d09487664ba1698c24ad5f4b37acd89a/build/icons-filter.svg");
+        appendSvgSprite("https://static.casino.guru/res/eed21e0a8501408563081f08eec7051aa/build/icons-casino.svg");
+        appendSvgSprite("https://static.casino.guru/res/ac17af17499109b33eefa5f798a65a0aa/build/icons-reputation.svg");
+    </script>
+    <header class="main-header main-header-b">
+        <div class="main-header-bg"></div>
+        <!-- .container -->
+        <div class="col-menu">
+            <nav class="menu group" data-module="menu">
+                <fade-burger class="menu-icon-label js-menu-icon-label" size="22"
+                    data-ga-id="general_header_elm_menuHamburger"></fade-burger>
+                <div class="menu-logo" data-ga-id="general_header_elm_logo">
+                    <a href="#" rel="home">
+                        <img src="https://static.casino.guru/res/cc26f89e34ef12cd4dac6731c76aaaa5a/images/casinoguru_logo.svg"
+                            alt="Classic Fruit" width="90" height="40">
+                    </a>
+                </div>
+                <div class="header-search-wrapper search-box-dark" data-module="search-box"
+                    data-target="/frontendService/fulltextSearch">
+                    <div class="header-search js-search-box-input-wrapper search-box-input-wrapper-dark">
+                        <input class="js-search-box-input header-search-input search-box-input-dark"
+                            placeholder="Search for casinos, games, and more" type="text">
+
+                        <input id="search-box--site-url" name="pageCountryId" type="hidden" value="42">
+                    </div>
+                </div>
+
+                <div class="menu-right">
+                    <span class="menu-lang js-menu-lang menu-right-btn" data-mouseflow-tag="Language_modal"
+                        data-module="modals/language-modal-init" data-ga-id="general_header_btn_langSettings">
+                        <span>EN</span>
+                        <label class="mx-xs">|</label>
+                        <i class="flag-icon flag-icon-kh"></i>
+                    </span>
+                    <div class="menu-right-link menu-right-btn js-menu-right-login">
+                        <span class="text">
+                            Login
+                        </span>
+                    </div>
+                    <a href="./src/signup.html" class="menu-right-signup menu-right-btn">
+                        <div class="menu-right-link">
+                            <span class="text">Sign up</span>
+                        </div>
+                    </a>
+
+                    <span class="menu-link-search js-header-search-toggle" data-ga-id="general_header_btn_searchBtn">
+                        <svg class="c-white" height="22" width="22">
+                            <use xlink:href="#base_ui_ico_search" />
+                        </svg>
+                    </span>
+                </div>
+
+                <div class="menu-login-popup menu-expandable-popup js-menu-login-popup">
+                    <div class="popup">
+                        <div class="form">
+                            <h2>Log in</h2>
+                            <div class="form-element">
+                                <label for="email">Email</label>
+                                <input type="text" id="email" placeholder="Enter email">
+                            </div>
+                            <div class="form-element">
+                                <label for="email">Password</label>
+                                <input type="password" id="password" placeholder="Enter password">
+                            </div>
+                            <div class="my-s flex items-center justify-between">
+                                <div class="form-element">
+                                    <a href="#" class="emm">Forgotten password?</label>
+                                </div>
+                            </div>
+                            <div class="form-element">
+                                <button>Log In</button>
+                            </div>
+                            <div class="delimiter-wrapper my-16-res flex justify-center"><span
+                                    class="delimiter">or</span></div>
+
+                            <div class="profile-card-social">
+                                <a href="https://www.facebook.com/" class="profile-card-social__item facebook"
+                                    target="_blank">
+                                    <span class="icon-font">
+                                        <svg class="icon">
+                                            <use xlink:href="#icon-facebook"></use>
+                                        </svg>
+                                    </span>
+                                </a>
+
+                                <a href="https://twitter.com" class="profile-card-social__item twitter" target="_blank">
+                                    <span class="icon-font">
+                                        <svg class="icon">
+                                            <use xlink:href="#icon-twitter"></use>
+                                        </svg>
+                                    </span>
+                                </a>
+
+                                <a href="https://gmail.com" class="profile-card-social__item instagram"
+                                    target="_blank">
+                                    <span class="icon-font">
+                                        <svg class="icon">
+                                            <use xlink:href="#icon-instagram"></use>
+                                        </svg>
+                                    </span>
+                                </a>
+                            </div>
+                            <p>
+                                Don't have an account?
+                                <a href="./signup.html" class="emm">
+                                    Sign In
+                                </a>
+                            </p>
+                        </div>
+                        <svg hidden="hidden">
+                            <defs>
+                                <symbol id="icon-github" viewBox="0 0 32 32">
+                                    <title>github</title>
+                                    <path
+                                        d="M16.192 0.512c-8.832 0-16 7.168-16 16 0 7.072 4.576 13.056 10.944 15.168 0.8 0.16 1.088-0.352 1.088-0.768 0-0.384 0-1.632-0.032-2.976-4.448 0.96-5.376-1.888-5.376-1.888-0.736-1.856-1.792-2.336-1.792-2.336-1.44-0.992 0.096-0.96 0.096-0.96 1.6 0.128 2.464 1.664 2.464 1.664 1.44 2.432 3.744 1.728 4.672 1.344 0.128-1.024 0.544-1.728 1.024-2.144-3.552-0.448-7.296-1.824-7.296-7.936 0-1.76 0.64-3.168 1.664-4.288-0.16-0.416-0.704-2.016 0.16-4.224 0 0 1.344-0.416 4.416 1.632 1.28-0.352 2.656-0.544 4-0.544s2.72 0.192 4 0.544c3.040-2.080 4.384-1.632 4.384-1.632 0.864 2.208 0.32 3.84 0.16 4.224 1.024 1.12 1.632 2.56 1.632 4.288 0 6.144-3.744 7.488-7.296 7.904 0.576 0.512 1.088 1.472 1.088 2.976 0 2.144-0.032 3.872-0.032 4.384 0 0.416 0.288 0.928 1.088 0.768 6.368-2.112 10.944-8.128 10.944-15.168 0-8.896-7.168-16.032-16-16.032z">
+                                    </path>
+                                    <path
+                                        d="M6.24 23.488c-0.032 0.064-0.16 0.096-0.288 0.064-0.128-0.064-0.192-0.16-0.128-0.256 0.032-0.096 0.16-0.096 0.288-0.064 0.128 0.064 0.192 0.16 0.128 0.256v0z">
+                                    </path>
+                                    <path
+                                        d="M6.912 24.192c-0.064 0.064-0.224 0.032-0.32-0.064s-0.128-0.256-0.032-0.32c0.064-0.064 0.224-0.032 0.32 0.064s0.096 0.256 0.032 0.32v0z">
+                                    </path>
+                                    <path
+                                        d="M7.52 25.12c-0.096 0.064-0.256 0-0.352-0.128s-0.096-0.32 0-0.384c0.096-0.064 0.256 0 0.352 0.128 0.128 0.128 0.128 0.32 0 0.384v0z">
+                                    </path>
+                                    <path
+                                        d="M8.384 26.016c-0.096 0.096-0.288 0.064-0.416-0.064s-0.192-0.32-0.096-0.416c0.096-0.096 0.288-0.064 0.416 0.064 0.16 0.128 0.192 0.32 0.096 0.416v0z">
+                                    </path>
+                                    <path
+                                        d="M9.6 26.528c-0.032 0.128-0.224 0.192-0.384 0.128-0.192-0.064-0.288-0.192-0.256-0.32s0.224-0.192 0.416-0.128c0.128 0.032 0.256 0.192 0.224 0.32v0z">
+                                    </path>
+                                    <path
+                                        d="M10.912 26.624c0 0.128-0.16 0.256-0.352 0.256s-0.352-0.096-0.352-0.224c0-0.128 0.16-0.256 0.352-0.256 0.192-0.032 0.352 0.096 0.352 0.224v0z">
+                                    </path>
+                                    <path
+                                        d="M12.128 26.4c0.032 0.128-0.096 0.256-0.288 0.288s-0.352-0.032-0.384-0.16c-0.032-0.128 0.096-0.256 0.288-0.288s0.352 0.032 0.384 0.16v0z">
+                                    </path>
+                                </symbol>
+
+                                <symbol id="icon-location" viewBox="0 0 32 32">
+                                    <title>location</title>
+                                    <path
+                                        d="M16 31.68c-0.352 0-0.672-0.064-1.024-0.16-0.8-0.256-1.44-0.832-1.824-1.6l-6.784-13.632c-1.664-3.36-1.568-7.328 0.32-10.592 1.856-3.2 4.992-5.152 8.608-5.376h1.376c3.648 0.224 6.752 2.176 8.608 5.376 1.888 3.264 2.016 7.232 0.352 10.592l-6.816 13.664c-0.288 0.608-0.8 1.12-1.408 1.408-0.448 0.224-0.928 0.32-1.408 0.32zM15.392 2.368c-2.88 0.192-5.408 1.76-6.912 4.352-1.536 2.688-1.632 5.92-0.288 8.672l6.816 13.632c0.128 0.256 0.352 0.448 0.64 0.544s0.576 0.064 0.832-0.064c0.224-0.096 0.384-0.288 0.48-0.48l6.816-13.664c1.376-2.752 1.248-5.984-0.288-8.672-1.472-2.56-4-4.128-6.88-4.32h-1.216zM16 17.888c-3.264 0-5.92-2.656-5.92-5.92 0-3.232 2.656-5.888 5.92-5.888s5.92 2.656 5.92 5.92c0 3.264-2.656 5.888-5.92 5.888zM16 8.128c-2.144 0-3.872 1.728-3.872 3.872s1.728 3.872 3.872 3.872 3.872-1.728 3.872-3.872c0-2.144-1.76-3.872-3.872-3.872z">
+                                    </path>
+                                    <path
+                                        d="M16 32c-0.384 0-0.736-0.064-1.12-0.192-0.864-0.288-1.568-0.928-1.984-1.728l-6.784-13.664c-1.728-3.456-1.6-7.52 0.352-10.912 1.888-3.264 5.088-5.28 8.832-5.504h1.376c3.744 0.224 6.976 2.24 8.864 5.536 1.952 3.36 2.080 7.424 0.352 10.912l-6.784 13.632c-0.32 0.672-0.896 1.216-1.568 1.568-0.48 0.224-0.992 0.352-1.536 0.352zM15.36 0.64h-0.064c-3.488 0.224-6.56 2.112-8.32 5.216-1.824 3.168-1.952 7.040-0.32 10.304l6.816 13.632c0.32 0.672 0.928 1.184 1.632 1.44s1.472 0.192 2.176-0.16c0.544-0.288 1.024-0.736 1.28-1.28l6.816-13.632c1.632-3.264 1.504-7.136-0.32-10.304-1.824-3.104-4.864-5.024-8.384-5.216h-1.312zM16 29.952c-0.16 0-0.32-0.032-0.448-0.064-0.352-0.128-0.64-0.384-0.8-0.704l-6.816-13.664c-1.408-2.848-1.312-6.176 0.288-8.96 1.536-2.656 4.16-4.32 7.168-4.512h1.216c3.040 0.192 5.632 1.824 7.2 4.512 1.6 2.752 1.696 6.112 0.288 8.96l-6.848 13.632c-0.128 0.288-0.352 0.512-0.64 0.64-0.192 0.096-0.384 0.16-0.608 0.16zM15.424 2.688c-2.784 0.192-5.216 1.696-6.656 4.192-1.504 2.592-1.6 5.696-0.256 8.352l6.816 13.632c0.096 0.192 0.256 0.32 0.448 0.384s0.416 0.064 0.608-0.032c0.16-0.064 0.288-0.192 0.352-0.352l6.816-13.664c1.312-2.656 1.216-5.792-0.288-8.352-1.472-2.464-3.904-4-6.688-4.16h-1.152zM16 18.208c-3.424 0-6.24-2.784-6.24-6.24 0-3.424 2.816-6.208 6.24-6.208s6.24 2.784 6.24 6.24c0 3.424-2.816 6.208-6.24 6.208zM16 6.4c-3.072 0-5.6 2.496-5.6 5.6 0 3.072 2.528 5.6 5.6 5.6s5.6-2.496 5.6-5.6c0-3.104-2.528-5.6-5.6-5.6zM16 16.16c-2.304 0-4.16-1.888-4.16-4.16s1.888-4.16 4.16-4.16c2.304 0 4.16 1.888 4.16 4.16s-1.856 4.16-4.16 4.16zM16 8.448c-1.952 0-3.552 1.6-3.552 3.552s1.6 3.552 3.552 3.552c1.952 0 3.552-1.6 3.552-3.552s-1.6-3.552-3.552-3.552z">
+                                    </path>
+                                </symbol>
+
+                                <symbol id="icon-facebook" viewBox="0 0 32 32">
+                                    <title>facebook</title>
+                                    <path
+                                        d="M19 6h5v-6h-5c-3.86 0-7 3.14-7 7v3h-4v6h4v16h6v-16h5l1-6h-6v-3c0-0.542 0.458-1 1-1z">
+                                    </path>
+                                </symbol>
+
+                                <symbol id="icon-instagram" viewBox="0 0 32 32">
+                                    <title>mail</title>
+                                    <path
+                                        d="M30.222 5.333h-28.444c-1.067 0-1.778 0.711-1.778 1.778v17.778c0 1.067 0.711 1.778 1.778 1.778h28.444c1.067 0 1.778-0.711 1.778-1.778v-17.778c0-1.067-0.711-1.778-1.778-1.778zM29.333 7.111l-13.333 9.6-13.333-9.6h26.667zM1.778 24.889v-16.178l14.222 10.311 14.222-10.311v16.178h-28.444z">
+                                    </path>
+                                </symbol>
+                                <symbol id="icon-twitter" viewBox="0 0 32 32">
+                                    <title>twitter</title>
+                                    <path
+                                        d="M32 7.075c-1.175 0.525-2.444 0.875-3.769 1.031 1.356-0.813 2.394-2.1 2.887-3.631-1.269 0.75-2.675 1.3-4.169 1.594-1.2-1.275-2.906-2.069-4.794-2.069-3.625 0-6.563 2.938-6.563 6.563 0 0.512 0.056 1.012 0.169 1.494-5.456-0.275-10.294-2.888-13.531-6.862-0.563 0.969-0.887 2.1-0.887 3.3 0 2.275 1.156 4.287 2.919 5.463-1.075-0.031-2.087-0.331-2.975-0.819 0 0.025 0 0.056 0 0.081 0 3.181 2.263 5.838 5.269 6.437-0.55 0.15-1.131 0.231-1.731 0.231-0.425 0-0.831-0.044-1.237-0.119 0.838 2.606 3.263 4.506 6.131 4.563-2.25 1.762-5.075 2.813-8.156 2.813-0.531 0-1.050-0.031-1.569-0.094 2.913 1.869 6.362 2.95 10.069 2.95 12.075 0 18.681-10.006 18.681-18.681 0-0.287-0.006-0.569-0.019-0.85 1.281-0.919 2.394-2.075 3.275-3.394z">
+                                    </path>
+                                </symbol>
+
+                                <symbol id="icon-link" viewBox="0 0 32 32">
+                                    <title>link</title>
+                                    <path
+                                        d="M17.984 11.456c-0.704 0.704-0.704 1.856 0 2.56 2.112 2.112 2.112 5.568 0 7.68l-5.12 5.12c-2.048 2.048-5.632 2.048-7.68 0-1.024-1.024-1.6-2.4-1.6-3.84s0.576-2.816 1.6-3.84c0.704-0.704 0.704-1.856 0-2.56s-1.856-0.704-2.56 0c-1.696 1.696-2.624 3.968-2.624 6.368 0 2.432 0.928 4.672 2.656 6.4 1.696 1.696 3.968 2.656 6.4 2.656s4.672-0.928 6.4-2.656l5.12-5.12c3.52-3.52 3.52-9.248 0-12.8-0.736-0.672-1.888-0.672-2.592 0.032z">
+                                    </path>
+                                    <path
+                                        d="M29.344 2.656c-1.696-1.728-3.968-2.656-6.4-2.656s-4.672 0.928-6.4 2.656l-5.12 5.12c-3.52 3.52-3.52 9.248 0 12.8 0.352 0.352 0.8 0.544 1.28 0.544s0.928-0.192 1.28-0.544c0.704-0.704 0.704-1.856 0-2.56-2.112-2.112-2.112-5.568 0-7.68l5.12-5.12c2.048-2.048 5.632-2.048 7.68 0 1.024 1.024 1.6 2.4 1.6 3.84s-0.576 2.816-1.6 3.84c-0.704 0.704-0.704 1.856 0 2.56s1.856 0.704 2.56 0c1.696-1.696 2.656-3.968 2.656-6.4s-0.928-4.704-2.656-6.4z">
+                                    </path>
+                                </symbol>
+                            </defs>
+                        </svg>
+                    </div>
+
+                </div>
+
+                <div class="menu-language-settings-popup menu-expandable-popup js-menu-language-settings-popup">
+                    <div class="menu-language-settings-popup-content">
+
+                        <form action="/frontendService/advancedLanguageSettings/languageCountrySettings" method="post"
+                            accept-charset="utf-8" data-module="language-change">
+                            <input type="hidden" name="siteUrl"
+                                value="https://casino.guru/Classic-Fruit-slot-play-free">
+                            <div class="js-language-modal-content">
+                                <div class="loader mx-auto my-xxl js-loader"></div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+                <div class="menu-collapse js-menu-collapse">
+                    <ul class="menu-nav">
+                        <li></li>
+
+                        <li class="menu-item-0" data-ga-id="general_header_link_menu" data-ga-param="Online Casinos">
+                            <a class="menu-link js-menu-link" href="#">
+                                <svg width="24" height="24" class="menu-icon">
+                                    <use xlink:href="#base_category_ico_casinos" />
+                                </svg>
+                                Online Casinos
+                                <svg class="icon-arrow ml-auto" width="16" height="16">
+                                    <use xlink:href="#base_ui_ico_chevron_down" />
+                                </svg>
+                            </a>
+                            <div class="sub-menu js-sub-menu js-articles-menu">
+                                <div class="sub-menu-main">
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Online casinos</div>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Top online casinos">
+                                            Top online casinos
+                                            <svg class="ml-xs c-green" width="12" height="12">
+                                                <use xlink:href="#base_ui_ico_rating_star" />
+                                            </svg>
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Newly opened casinos">
+                                            Newly opened casinos
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Big brands">
+
+                                            Big brands
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="All casinos">
+
+                                            All casinos
+
+                                        </a>
+
+                                    </div>
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Popular filters</div>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Mobile-friendly casinos">
+
+                                            Mobile-friendly casinos
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Bitcoin/crypto casinos">
+
+                                            Bitcoin/crypto casinos
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Best slots sites">
+                                            Best slots sites
+                                        </a>
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Real money gambling sites">
+                                            Real money gambling sites
+                                        </a>
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Casino reviews">
+                                            Casino reviews
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Live dealer casinos">
+                                            Live dealer casinos
+                                        </a>
+
+                                    </div>
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Casinos by payment method</div>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Neteller casinos">
+
+                                            Neteller casinos
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Skrill casinos">
+
+                                            Skrill casinos
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="PaySafeCard casinos">
+
+                                            PaySafeCard casinos
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="ecoPayz casinos">
+
+                                            ecoPayz casinos
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Mastercard casinos">
+
+                                            Mastercard casinos
+
+                                        </a>
+
+                                    </div>
+
+                                    <picture>
+                                        <source data-dom-ready-src
+                                            data-srcset="https://static.casino.guru/res/202102221431/images/main-menu-bg-images/menu-img-casinos.png"
+                                            media="(min-width: 768px)"><img alt="menu-img-casinos.png"
+                                            data-src="https://static.casino.guru/res/202102221431/images/main-menu-bg-images/menu-img-casinos.png"
+                                            width="161" height="261"></picture>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="menu-item-1" data-ga-id="general_header_link_menu" data-ga-param="Games">
+                            <a class="menu-link js-menu-link" href="https://casino.guru/free-casino-games">
+                                <svg width="24" height="24" class="menu-icon">
+                                    <use xlink:href="#base_category_ico_games" />
+                                </svg>
+
+                                Games
+
+                                <svg class="icon-arrow ml-auto" width="16" height="16">
+                                    <use xlink:href="#base_ui_ico_chevron_down" />
+                                </svg>
+                            </a>
+                            <div class="sub-menu js-sub-menu js-articles-menu">
+                                <div class="sub-menu-main">
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">All games</div>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Free casino games">
+                                            Free casino games
+                                            <svg class="ml-xs c-green" width="12" height="12">
+                                                <use xlink:href="#base_ui_ico_rating_star" />
+                                            </svg>
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Most popular games">
+
+                                            Most popular games
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Latest games">
+
+                                            Latest games
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Recently reviewed games">
+
+                                            Recently reviewed games
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Highest RTP">
+
+                                            Highest RTP
+
+                                        </a>
+
+                                    </div>
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Game by type</div>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Slots">
+
+                                            Slots
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Roulette">
+
+                                            Roulette
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Video poker">
+
+                                            Video poker
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Blackjack">
+
+                                            Blackjack
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Scratch cards">
+
+                                            Scratch cards
+
+                                        </a>
+
+                                    </div>
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Games by provider</div>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="NetEnt games">
+
+                                            NetEnt games
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Novomatic games">
+
+                                            Novomatic games
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="EGT games">
+
+                                            EGT games
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Nolimit City games">
+
+                                            Nolimit City games
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Microgaming games">
+
+                                            Microgaming games
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="All game providers">
+
+                                            All game providers
+
+                                        </a>
+
+                                    </div>
+
+                                    <picture>
+                                        <source data-dom-ready-src
+                                            data-srcset="https://static.casino.guru/res/202102221431/images/main-menu-bg-images/menu-img-games.png"
+                                            media="(min-width: 768px)"><img alt="menu-img-games.png"
+                                            data-src="https://static.casino.guru/res/202102221431/images/main-menu-bg-images/menu-img-games.png"
+                                            width="161" height="261"></picture>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="menu-item-2" data-ga-id="general_header_link_menu" data-ga-param="Bonuses">
+                            <a class="menu-link js-menu-link" href="#">
+                                <svg width="24" height="24" class="menu-icon">
+                                    <use xlink:href="#base_category_ico_bonuses" />
+                                </svg>
+                                Bonuses
+                                <svg class="icon-arrow ml-auto" width="16" height="16">
+                                    <use xlink:href="#base_ui_ico_chevron_down" />
+                                </svg>
+                            </a>
+                            <div class="sub-menu js-sub-menu js-articles-menu">
+                                <div class="sub-menu-main">
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Bonus type</div>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="No deposit bonuses">
+
+                                            No deposit bonuses
+                                            <svg class="ml-xs c-green" width="12" height="12">
+                                                <use xlink:href="#base_ui_ico_rating_star" />
+                                            </svg>
+
+                                        </a>
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Deposit bonuses">
+
+                                            Deposit bonuses
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Reload bonuses">
+
+                                            Reload bonuses
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Cashback bonuses">
+
+                                            Cashback bonuses
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="All bonuses">
+
+                                            All bonuses
+
+                                        </a>
+
+                                    </div>
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">All bonuses</div>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Exclusive bonuses">
+
+                                            Exclusive bonuses
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Recommended bonuses">
+
+                                            Recommended bonuses
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Latest bonuses">
+
+                                            Latest bonuses
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Bonuses from big brands">
+
+                                            Bonuses from big brands
+
+                                        </a>
+
+                                    </div>
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">No deposit bonuses</div>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Best no deposit bonuses">
+
+                                            Best no deposit bonuses
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="New no deposit bonuses">
+
+                                            New no deposit bonuses
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Exclusive no deposit bonuses">
+
+                                            Exclusive no deposit bonuses
+
+                                        </a>
+
+                                    </div>
+
+                                    <picture>
+                                        <img src="https://static.casino.guru/res/202102221431/images/main-menu-bg-images/menu-img-bonuses.png"
+                                            alt="">
+                                    </picture>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="menu-item-3" data-ga-id="general_header_link_menu" data-ga-param="Guide">
+                            <a class="menu-link js-menu-link" href="https://casino.guru/introduction-to-online-casinos">
+                                <svg width="24" height="24" class="menu-icon">
+                                    <use xlink:href="#base_category_ico_guides" />
+                                </svg>
+
+                                Guide
+
+                                <svg class="icon-arrow ml-auto" width="16" height="16">
+                                    <use xlink:href="#base_ui_ico_chevron_down" />
+                                </svg>
+                            </a>
+                            <div class="sub-menu js-sub-menu js-articles-menu">
+                                <div class="sub-menu-main">
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Essentials</div>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Introduction to online casinos">
+                                            Introduction to online casinos
+                                        </a>
+
+                                    
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Games of chance: RTP and variance">
+
+                                            Games of chance: RTP and variance
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Bonuses and promotions">
+                                            Bonuses and promotions
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Responsible gambling and help for problem gamblers">
+
+                                            Responsible gambling and help for problem gamblers
+
+                                        </a>
+
+                                    </div>
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Guides by type of game</div>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Slot machines">
+
+                                            Slot machines
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Roulette">
+
+                                            Roulette
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Blackjack">
+
+                                            Blackjack
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Video Poker">
+
+                                            Video Poker
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Online scratchcards">
+
+                                            Online scratchcards
+
+                                        </a>
+
+                                    </div>
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Our best pieces</div>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Bonus hunting">
+
+                                            Bonus hunting
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="How to beat slots">
+
+                                            How to beat slots
+
+                                        </a>
+
+                                    </div>
+
+                                    <picture>
+                                        <img src="https://static.casino.guru/res/202102221431/images/main-menu-bg-images/menu-img-guides.png"
+                                            alt="" width="161" height="261">
+
+                                    </picture>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="menu-item-4" data-ga-id="general_header_link_menu" data-ga-param="Complaints">
+                            <a class="menu-link js-menu-link" href="#">
+                                <svg width="24" height="24" class="menu-icon">
+                                    <use xlink:href="#base_category_ico_complaints" />
+                                </svg>
+
+                                Complaints
+
+                                <svg class="icon-arrow ml-auto" width="16" height="16">
+                                    <use xlink:href="#base_ui_ico_chevron_down" />
+                                </svg>
+                            </a>
+                            <div class="sub-menu js-sub-menu js-articles-menu">
+                                <div class="sub-menu-main">
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Browse complaints</div>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Complaints overview">
+
+                                            Complaints overview
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Opened">
+
+                                            Opened
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Not solved">
+
+                                            Not solved
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Solved">
+
+                                            Solved
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Rejected">
+
+                                            Rejected
+
+                                        </a>
+
+                                    </div>
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Learn more</div>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Complaint resolution instructions">
+
+                                            Complaint resolution instructions
+
+                                        </a>
+
+                                    </div>
+
+                                    <picture>
+                                        <img src="https://static.casino.guru/res/202102221431/images/main-menu-bg-images/menu-img-guides.png"
+                                            alt="" width="161" height="261">
+                                    </picture>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="menu-item-5" data-ga-id="general_header_link_menu" data-ga-param="Forum">
+                            <a class="menu-link js-menu-link" href="#">
+                                <svg width="24" height="24" class="menu-icon">
+                                    <use xlink:href="#base_category_ico_forum" />
+                                </svg>
+
+                                Forum
+
+                                <svg class="icon-arrow ml-auto" width="16" height="16">
+                                    <use xlink:href="#base_ui_ico_chevron_down" />
+                                </svg>
+                            </a>
+                            <div class="sub-menu js-sub-menu js-articles-menu">
+                                <div class="sub-menu-main">
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Explore the forum</div>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Forum homepage">
+
+                                            Forum homepage
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Latest Posts">
+                                            Latest Posts
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Hot Threads">
+
+                                            Hot Threads
+
+                                        </a>
+
+                                    </div>
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Popular categories</div>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="General Gambling Discussion">
+
+                                            General Gambling Discussion
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Complaints Discussion">
+
+                                            Complaints Discussion
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Competitions">
+
+                                            Competitions
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Bonuses and Promotions">
+
+                                            Bonuses and Promotions
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Casinos">
+
+                                            Casinos
+
+                                        </a>
+
+                                        <a href="#" class="link-primary text-bold block js-link"
+                                            data-ga-id="general_header_link_menuSub" data-ga-param="Slots">
+
+                                            Slots
+
+                                        </a>
+
+                                    </div>
+
+                                    <div class="sub-menu-col">
+                                        <div class="col-label">Join the community</div>
+
+                                        <a class="link-primary text-bold block js-link js-toggle-menu-login"
+                                            data-ga-id="general_header_link_menuSub"
+                                            data-ga-param="Start your own discussion">
+
+                                            Start your own discussion
+
+                                        </a>
+
+                                    </div>
+
+                                    <picture>
+                                        <img src="https://static.casino.guru/res/202102221431/images/main-menu-bg-images/menu-img-forum.png"
+                                            alt="" width="161" height="261">
+
+                                    </picture>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="menu-item-6" data-ga-id="general_header_link_menu" data-ga-param="User reviews">
+                            <a class="menu-link" href="#">
+                                <svg width="24" height="24" class="menu-icon">
+                                    <use xlink:href="#base_ui_ico_rating_star" />
+                                </svg>
+
+                                User reviews
+
+                            </a>
+
+                        </li>
+
+                        <li class="menu-item-7" data-ga-id="general_header_link_menu" data-ga-param="News">
+                            <a class="menu-link" href="#" target="_blank">
+                                <svg width="24" height="24" class="menu-icon">
+                                    <use xlink:href="#base_ui_ico_press" />
+                                </svg>
+
+                                <span class="relative">
+                                    News
+                                    <span class="tag-new">New</span>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="magic-line">&nbsp;</li>
+
+                        <li></li>
+                        <li class="menu-item hidden-xs hidden-xxs"><span class="menu-link menu-link-search js-search">
+                                <i class="bi bi-search"></i>
+
+                                <div class="sgw-toolbar-outside">
+                                    <div class="sgw-toolbar-wrapper" id="general_header_element_promoSGW"
+                                        data-ga-id="general_header_elm_promoSGW">
+                                        <a href="#" target="_blank" class="sgw-toolbar menu-link">
+                                            <span class="menu-icon">
+                                                <svg class="c-white" height="16" width="16">
+                                                    <use xlink:href="#base_ui_ico_play_mark" />
+                                                </svg>
+                                            </span>
+                                            <span class="sgw-toolbar-text">
+                                                <span class="hidden-lg">
+                                                    Test your gambling
+                                                </span>
+                                                <span class="visible-lg">
+                                                    Test your gambling style
+                                                </span>
+                                            </span>
+
+                                        </a>
+                                    </div>
+                                </div>
+
+                    </ul>
+
+                    <div class="menu-collapse-bottom">
+
+                        <a href="https://casino.guru/about-us">About us</a>
+
+                        <a href="https://casino.guru/terms-and-conditions">Terms of use</a>
+
+                    </div>
+                </div>
+
+                <div class="search-box-results-wrapper relative">
+                    <div class="search-box-results js-search-box-results-placeholder">
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+    </header>
+
+    <div class="game-block js-game-detail-page " data-module="userscore-listener" data-userscore-focus-point="2"
+        data-userscore-refresh-counter data-userscore-click data-userscore-click-value="15" data-userscore-game="3448">
+        <div class="game-block-overlay">
+            <!--Background Image goes here-->
+            <picture>
+                <img src="https://static.casino.guru/pict/35739/Classic-Fruit.jpg?timestamp=1653387129000&width=838&imageDataId=13712&webp=true&compressWebp=85"
+                    alt="">
+            </picture>
+        </div>
+        <div class="games-box-wrapper" data-userscore-click data-userscore-click-value="15">
+
+            <div class="game-report-problem js-game-report-problem hidden">
+                <div class="slide-1 js-slide-1">
+                    <div class="flex justify-between items-center mb-m">
+
+                        <h4 class="neo-fs-22">
+                            Why doesn't this game work?
+                        </h4>
+                        <span class="js-report-problem-close close">
+                            <svg width="20" height="20" class="">
+                                <use xlink:href="#base_ui_ico_close" />
+                            </svg>
+                        </span>
+                    </div>
+                    <form type="post" action="#" id="form-user-vote" class="form-user-vote js-game-report-problem-form">
+                        <input type="checkbox" value="dislike" name="type" hidden checked>
+                        <div class="game-report-content">
+                            <div class="flex-1">
+                                <div class="report-problem-row">
+                                    <input type="radio" class="cg-radio js-vote-input" name="voteType"
+                                        value="GAME_DISLIKE_1" required id="GAME_DISLIKE_1">
+                                    <label class="flex js-vote-label" for="GAME_DISLIKE_1">
+                                        Game won't start loading
+                                    </label>
+                                </div>
+                                <div class="report-problem-row">
+                                    <input type="radio" class="cg-radio js-vote-input" name="voteType"
+                                        value="GAME_DISLIKE_2" required id="GAME_DISLIKE_2">
+                                    <label class="flex js-vote-label" for="GAME_DISLIKE_2">
+                                        Game freezes while loading
+                                    </label>
+                                </div>
+                                <div class="report-problem-row">
+                                    <input type="radio" class="cg-radio js-vote-input" name="voteType"
+                                        value="GAME_DISLIKE_3" required id="GAME_DISLIKE_3">
+                                    <label class="flex js-vote-label" for="GAME_DISLIKE_3">
+                                        Game throws an error
+                                    </label>
+                                </div>
+                                <div class="report-problem-row">
+                                    <input type="radio" class="cg-radio js-vote-input" name="voteType"
+                                        value="GAME_DISLIKE_4" required id="GAME_DISLIKE_4">
+                                    <label class="flex js-vote-label" for="GAME_DISLIKE_4">
+                                        Problem with Flash
+                                    </label>
+                                </div>
+                                <div class="report-problem-row">
+                                    <input type="radio" class="cg-radio js-vote-input" name="voteType"
+                                        value="GAME_DISLIKE_OTHER" required id="GAME_DISLIKE_5">
+                                    <label class="flex js-vote-label" for="GAME_DISLIKE_5">
+                                        Other reason
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <textarea name="reasonText" placeholder="Tell us more"></textarea>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="js-form-error c-red hidden my-xs"></div>
+                            <input type="submit" href="#" class="btn btn-orange w-full" value="Submit">
+                        </div>
+                    </form>
+                </div>
+                <div class="user-vote-finish js-user-vote-finish hidden text-center">
+                    <img data-src="https://static.casino.guru/res/c75d3bed5215c33bfaf581122b5b4dcaa/images/guru-poses/guru_pose_PERFECT.png"
+                        height="200" class="block my-l mx-auto">
+                    <h4 class="my-m neo-fs-28">
+                        Thank you for your feedback!
+                    </h4>
+                    <span class="js-report-problem-close close">
+                        <svg width="16" height="16" class="">
+                            <use xlink:href="#base_ui_ico_close" />
+                        </svg>
+                    </span>
+                    <label class="neo-sub-fs-18 my-m">
+                        It will help us show others more accurate results
+                    </label>
+                    <div class="mt-xl">
+                        <span class="btn btn-red btn-width-m btn-responsive js-delete-report-problem">
+                            <svg width="16" height="16" class="">
+                                <use xlink:href="#base_ui_ico_delete" />
+                            </svg>
+                            <span>Delete feedback</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="games-box js-games-box" id="game-box" data-brand-id="1" data-game-id="3448">
+                <div class="game-block-header js-game-block-header">
+                    <h1 class="neo-fs-20 c-grey-1">
+                        Play Classic Fruit for Free in Demo Mode
+                        <a href="https://casino.guru/free-casino-games/1x2-gaming" class="c-grey-5 game-provider"
+                            target="_blank" data-ga-id="gamDet_top_link_providerName">by 1X2 Gaming</a>
+                    </h1>
+                    <span data-switch="exit-fullscreen"
+                        class="games-box-header-switch games-box-header-switch-exit-fullscreen ml-s"
+                        data-userscore-click-target>
+                        <!-- base_ui_ico_fullscreen_exit -->
+                        <svg width="24" height="24" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                            class="c-white mr-xs inline-block align-middle" data-toggle="popover-hover"
+                            data-content="Exit Fullscreen">
+                            <path
+                                d="M21.236 2H2.924C2.4164 2 2 2.4152 2 2.924V21.236C2 21.7436 2.4152 22.16 2.924 22.16H21.236C21.7436 22.16 22.16 21.7448 22.16 21.236V2.924C22.16 2.4152 21.7448 2 21.236 2ZM19.5212 19.5212H4.6388V4.6388H19.5212V19.5212ZM5.9972 16.544C5.9288 16.4756 5.9288 16.3652 5.9972 16.298L8.36 13.9352L7.0844 12.6596C6.9752 12.5504 7.052 12.362 7.208 12.362H11.6264C11.7224 12.362 11.8004 12.44 11.8004 12.536V16.9544C11.8004 17.1092 11.6132 17.1872 11.5028 17.078L10.2272 15.8024L7.8644 18.1652C7.796 18.2336 7.6856 18.2336 7.6184 18.1652L5.9972 16.544ZM12.3608 11.6252V7.2068C12.3608 7.052 12.548 6.974 12.6584 7.0832L13.934 8.3588L16.2968 5.996C16.3652 5.9276 16.4756 5.9276 16.5428 5.996L18.1628 7.616C18.2312 7.6844 18.2312 7.7948 18.1628 7.862L15.8 10.2248L17.0756 11.5004C17.1848 11.6096 17.108 11.798 16.952 11.798H12.5336C12.4388 11.7992 12.3608 11.7212 12.3608 11.6252Z" />
+                        </svg>
+                    </span>
+                    <div class="game-block-header-fullscreen">
+                        <span data-switch="fullscreen"
+                            class="games-box-header-switch games-box-header-switch-fullscreen"
+                            data-userscore-click-target data-ga-id="gamDet_top_btn_fullscreen">
+                            <!-- base_ui_ico_fullscreen -->
+                            <svg width="24" height="24" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                class="c-white" data-toggle="popover-hover" data-content="Fullscreen">
+                                <path
+                                    d="M19.5212 4.6388V19.5212H4.6388V4.6388H19.5212ZM21.236 2H2.924C2.4164 2 2 2.4152 2 2.924V21.236C2 21.7436 2.4152 22.16 2.924 22.16H21.236C21.7436 22.16 22.16 21.7448 22.16 21.236V2.924C22.16 2.4152 21.7448 2 21.236 2ZM17.6444 6.3416H13.226C13.0712 6.3416 12.9932 6.5288 13.1024 6.6392L14.378 7.9148L12.0152 10.2776C11.9468 10.346 11.9468 10.4564 12.0152 10.5236L13.6352 12.1436C13.7036 12.212 13.814 12.212 13.8812 12.1436L16.244 9.7808L17.5196 11.0564C17.6288 11.1656 17.8172 11.0888 17.8172 10.9328V6.5156C17.8184 6.4196 17.7404 6.3416 17.6444 6.3416ZM10.5236 12.0164C10.4552 11.948 10.3448 11.948 10.2776 12.0164L7.9148 14.3792L6.6392 13.1036C6.53 12.9944 6.3416 13.0712 6.3416 13.2272V17.6456C6.3416 17.7416 6.4196 17.8196 6.5156 17.8196H10.934C11.0888 17.8196 11.1668 17.6324 11.0576 17.522L9.782 16.2464L12.1448 13.8836C12.2132 13.8152 12.2132 13.7048 12.1448 13.6376L10.5236 12.0164Z" />
+                            </svg>
+                        </span>
+
+                        <a href="#" class="games-box-header-switch games-box-header-switch-fullscreen-fallback">
+                            <!-- base_ui_ico_fullscreen -->
+                            <svg width="24" height="24" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                class="c-white">
+                                <path
+                                    d="M19.5212 4.6388V19.5212H4.6388V4.6388H19.5212ZM21.236 2H2.924C2.4164 2 2 2.4152 2 2.924V21.236C2 21.7436 2.4152 22.16 2.924 22.16H21.236C21.7436 22.16 22.16 21.7448 22.16 21.236V2.924C22.16 2.4152 21.7448 2 21.236 2ZM17.6444 6.3416H13.226C13.0712 6.3416 12.9932 6.5288 13.1024 6.6392L14.378 7.9148L12.0152 10.2776C11.9468 10.346 11.9468 10.4564 12.0152 10.5236L13.6352 12.1436C13.7036 12.212 13.814 12.212 13.8812 12.1436L16.244 9.7808L17.5196 11.0564C17.6288 11.1656 17.8172 11.0888 17.8172 10.9328V6.5156C17.8184 6.4196 17.7404 6.3416 17.6444 6.3416ZM10.5236 12.0164C10.4552 11.948 10.3448 11.948 10.2776 12.0164L7.9148 14.3792L6.6392 13.1036C6.53 12.9944 6.3416 13.0712 6.3416 13.2272V17.6456C6.3416 17.7416 6.4196 17.8196 6.5156 17.8196H10.934C11.0888 17.8196 11.1668 17.6324 11.0576 17.522L9.782 16.2464L12.1448 13.8836C12.2132 13.8152 12.2132 13.7048 12.1448 13.6376L10.5236 12.0164Z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="games-box-content" data-module="game-box" data-mode="standard">
+                    <div class="games-box-placeholder">
+                        <div class="games-box-placeholder-image">
+                            <picture>
+                                <img src="https://static.casino.guru/pict/35739/Classic-Fruit.jpg?timestamp=1653387129000&width=838&imageDataId=13712&webp=true&compressWebp=85"
+                                    alt="">
+                            </picture>
+                        </div>
+                        <div class="btn-wrapper">
+                            <span id="game_link" class="games-box-btn-main">
+
+                                <span class="text">
+                                    <strong>Play for Free</strong>
+                                    <small>100% free / No limits</small>
+                                </span>
+                            </span>
+                            <div class="games-box-btn-secondary js-playforreal-button-container"
+                                data-userscore-click-target data-ga-id="gamDet_top_btn_playForReal">
+                                <svg width="20" height="20" class="c-white mr-s">
+                                    <use xlink:href="#base_ui_ico_money" />
+                                </svg>
+                                Play in Casino
+                            </div>
+                        </div>
+                    </div>
+                    <div class="games-box-game">
+                        <div class="iframe-wrapper" style="width:100%;height:100%;">
+                            <iframe src="" frameborder="0" id="gamefileEmbed1" scrolling="no"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="games-box-controls-bottom c-grey-3">
+                    <div class="games-box-controls-buttons">
+                        <span class="btn-game js-vote-like" data-game-id="3448" data-brand-id="1"
+                            data-value="GAME_LIKE_2" data-ga-id="gamDet_top_btn_favorite">
+                            <span class="ico flex">
+                                <svg class="c-blue not-active vote-not-active" width="20" height="20">
+                                    <use xlink:href="#base_ui_ico_thumb_up" />
+                                </svg>
+                                <svg class="c-blue active-btn vote-active" width="20" height="20">
+                                    <use xlink:href="#base_ui_ico_thumb_up" />
+                                </svg>
+                            </span>
+                            <span class="text">
+                                Like this game
+                                <span class="not-active vote-not-active">(4x)</span>
+
+                                <span class="active-btn vote-active">(5x)</span>
+                            </span>
+                        </span>
+                        <a href="#review" class="btn-game game-detail-review-link"
+                            data-ga-id="gamDet_top_btn_readReview">
+                            <svg width="20" height="20" style="fill: #9539C7">
+                                <use xlink:href="#base_ui_ico_casino_review" />
+                            </svg>
+                            Read review
+                        </a>
+                        <div class="btn-game btn-play-for-real js-playforreal-button-container"
+                            data-userscore-click-target data-ga-id="gamDet_top_btn_playForReal">
+                            <svg width="20" height="20" style="fill: #44BE4C">
+                                <use xlink:href="#base_ui_ico_money" />
+                            </svg>
+                            Play in Casino
+                        </div>
+                        <div class="games-box-controls-vote btn-game js-report-problem-btn" data-game-id="3448"
+                            data-brand-id="1" data-vote-form-url="/frontendService/vote/game"
+                            data-vote-type="GAME_VOTE">
+
+                            <span class="flex items-center text-bold vote-link-down"
+                                data-ga-id="gamDet_top_btn_reportProblem">
+                                <svg width="20" height="20">
+                                    <use xlink:href="#base_ui_ico_warning" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Wrapper goes here-->
+    <div class="section-dark game-detail-wrapper">
+        <div class="game-detail-main">
+            <div class="game-detail-main-info-and-themes">
+                <div class="game-detail-main-info">
+                    <picture>
+                        <img src="https://static.casino.guru/pict/35741/Classic-Fruit.png?timestamp=1653464345000&imageDataId=255430&width=320&webp=true&compressWebp=85"
+                            alt="#" width="320" height="247">
+                    </picture>
+                    <h2 class="neo-fs-20">
+                        <svg width="28" height="28">
+                            <use xlink:href="#base_category_ico_games" />
+                        </svg>
+                        Game information
+                    </h2>
+                    <table>
+
+                        <tbody>
+                            <tr class="hidden-info">
+                                <td>
+                                    Game provider
+
+                                </td>
+                                <td>
+                                    1X2 Gaming
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Progressive Jackpot</td>
+                                <td>
+                                    <span class="bullet bullet-grey">
+                                        <svg width="12" height="12">
+                                            <use xlink:href="#base_ui_ico_cross" />
+                                        </svg>
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Configurable winlines</td>
+                                <td>
+                                    <span class="bullet bullet-green bullet-with-white-svg">
+                                        <svg width="12" height="12">
+                                            <use xlink:href="#base_ui_ico_checkmark" />
+                                        </svg>
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Bonus feature</td>
+                                <td>
+                                    <span class="bullet bullet-grey">
+                                        <svg width="12" height="12">
+                                            <use xlink:href="#base_ui_ico_cross" />
+                                        </svg>
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Free spins</td>
+                                <td>
+                                    <span class="bullet bullet-grey">
+                                        <svg width="12" height="12">
+                                            <use xlink:href="#base_ui_ico_cross" />
+                                        </svg>
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Autoplay</td>
+                                <td>
+                                    <span class="bullet bullet-green bullet-with-white-svg">
+                                        <svg width="12" height="12">
+                                            <use xlink:href="#base_ui_ico_checkmark" />
+                                        </svg>
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Quickspin feature</td>
+                                <td>
+                                    <span class="bullet bullet-grey">
+                                        <svg width="12" height="12">
+                                            <use xlink:href="#base_ui_ico_cross" />
+                                        </svg>
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Gamble feature</td>
+                                <td>
+                                    <span class="bullet bullet-grey">
+                                        <svg width="12" height="12">
+                                            <use xlink:href="#base_ui_ico_cross" />
+                                        </svg>
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr class="show-hidden-info">
+                                <td colspan="2">
+                                    <span id="game-detail-main-info-show-hidden-info">
+                                        Show more info
+                                        <svg width="14" height="14">
+                                            <use xlink:href="#base_ui_ico_chevron_down" />
+                                        </svg>
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table>
+
+                        <tbody>
+                            <tr class="hidden-info">
+                                <td>
+                                    Min bet
+                                    <span role="button" tabindex="0" data-toggle="popover"
+                                        data-content="Minimum bet in the free version of the game. The minimum bet can be different when playing for real money in a casino.">
+                                        <svg class="c-white" width="14" height="14">
+                                            <use xlink:href="#base_ui_ico_info" />
+                                        </svg>
+                                    </span>
+                                </td>
+
+                                <td>$1.0</td>
+                            </tr>
+
+                            <tr class="hidden-info">
+                                <td>
+                                    Max bet
+                                    <span role="button" tabindex="0" data-toggle="popover"
+                                        data-content="Maximum bet in the free version of the game. The maximum bet can be different when playing for real money in a casino.">
+                                        <svg class="c-white" width="14" height="14">
+                                            <use xlink:href="#base_ui_ico_info" />
+                                        </svg>
+                                    </span>
+                                </td>
+
+                                <td>$25.0</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <table>
+
+                        <tbody>
+                            <tr class="hidden-info">
+                                <td>
+                                    Release date
+
+                                </td>
+                                <td>
+                                    2015
+                                </td>
+                            </tr>
+
+                            <tr class="hidden-info">
+                                <td>
+                                    Last update
+
+                                </td>
+                                <td>
+                                    29 Jun 2022
+                                </td>
+                            </tr>
+
+                            <tr class="hide-hidden-info">
+                                <td colspan="2">
+                                    <span id="game-detail-main-info-hide-hidden-info">
+                                        Less info
+                                        <svg width="14" height="14">
+                                            <use xlink:href="#base_ui_ico_chevron_up" />
+                                        </svg>
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-l">
+
+                    <h2 class="neo-fs-20">
+                        <svg width="28" height="28">
+                            <use xlink:href="#base_game_ico_theme" />
+                        </svg>
+                        Game themes
+                    </h2>
+                    <div class="game-detail-main-themes-wrapper">
+
+                        <a class="game-detail-main-theme" href="#" target="_blank">
+                            Classics and retro
+                        </a>
+
+                        <a class="game-detail-main-theme" href="#" target="_blank">
+                            3-Reels
+                        </a>
+
+                    </div>
+
+                </div>
+                <div class="game-detail-main-embed">
+                    <div class="game-detail-main-embed-text">
+                        <img src="https://static.casino.guru/res/202210261155/images/games/guru-embed-code.png" alt=""
+                            height="156" width="139">
+                        <p>
+                            Feel free to add this game to your website.
+                        </p>
+                    </div>
+                    <div class="game-detail-main-embed-button-area" id="game-embed-button-wrapper">
+                        <div id="game-embed-button" class="game-embed-code">
+                            <svg width="18" height="18" class="c-white">
+                                <use xlink:href="#base_ui_ico_copy" />
+                            </svg>
+                            Copy Embed Code
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-detail-main-overview">
+                <h2 class="neo-fs-28">
+                    Classic Fruit
+                </h2>
+
+                <p class="mt-m">
+                    Try Classic Fruit slot online for free in demo mode with no download and no registration required
+                    and read the game's review before playing for real money.
+                </p>
+            </div>
+            <div class="game-detail-main-stats">
+                <div class="stats-cards">
+                    <div class="stats-card stats-card-dark">
+                        <label>Return to player</label>
+                        <div class="flex items-center">
+                            <svg width="24" height="24" class="c-green">
+                                <use xlink:href="#base_ui_ico_reply_left" />
+                            </svg>
+                            <b>
+                                97.31%
+                            </b>
+
+                        </div>
+                        <svg width="88" height="88" class="bg-icon">
+                            <use xlink:href="#base_ui_ico_reply_left" />
+                        </svg>
+                    </div>
+                    <div class="stats-card stats-card-dark">
+                        <label>Game Type</label>
+                        <div class="flex items-center">
+                            <svg width="24" height="24" class="c-green">
+                                <use xlink:href="#base_category_ico_games" />
+                            </svg>
+                            <b>
+                                Slots
+                            </b>
+                        </div>
+                        <svg width="88" height="88" class="bg-icon">
+                            <use xlink:href="#base_category_ico_games" />
+                        </svg>
+                    </div>
+                    <div class="stats-card stats-card-dark">
+                        <label>Max win</label>
+                        <div class="flex items-center">
+                            <svg width="24" height="24" class="c-green">
+                                <use xlink:href="#base_ui_ico_money" />
+                            </svg>
+
+                            <b>
+                                Unknown
+                            </b>
+                        </div>
+                        <svg width="88" height="88" class="bg-icon">
+                            <use xlink:href="#base_ui_ico_money" />
+                        </svg>
+                    </div>
+                    <div class="stats-card stats-card-dark">
+                        <label>Winlines/Ways to win</label>
+                        <div class="flex items-center">
+                            <svg width="24" height="24" class="c-green">
+                                <use xlink:href="#casino_ico_top_10_chart" />
+                            </svg>
+                            <b>
+                                5
+                            </b>
+
+                        </div>
+                        <svg width="88" height="88" class="bg-icon">
+                            <use xlink:href="#casino_ico_top_10_chart" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="game-detail-main-about">
+
+                <div class="game-detail-main-quick-verdict">
+                    <div class="game-detail-main-quick-verdict-heading">
+                        <div>
+                            <img src="https://static.casino.guru/res/202210261155/images/guru-poses/guru_pose_GOOD.png"
+                                alt="">
+                        </div>
+                        <div class="game-detail-main-quick-verdict-heading-score">
+                            <span class="game-detail-main-quick-verdict-heading-score-number">
+                                6.2
+                            </span>
+                            <span class="game-detail-main-quick-verdict-heading-score-label">
+                                Guru Score
+                            </span>
+                        </div>
+                    </div>
+                    <div class="game-detail-main-quick-verdict-content">
+                        <div class="game-detail-main-quick-verdict-content-heading">
+                            Quick verdict
+                        </div>
+                        <div class="game-detail-main-quick-verdict-content-text">
+                            A classic 3-reel, 5 payline slot coming from 1x2 Gaming. With a top payout of 200 coins and
+                            a low to medium variance Classic Fruit is not a slot which will make you rich in a single
+                            spin.
+                        </div>
+                        <a href="#" class="game-detail-main-quick-verdict-content-read-review">
+                            <svg class="mr-xs" width="16" height="16">
+                                <use xlink:href="#base_ui_ico_arrow_down" /></svg>Read full review
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="game-detail-main-provider video-grid-name">
+                <h2 class="neo-fs-20">
+                    <svg width="28" height="28">
+                        <use xlink:href="#filter_ico_game_provider" />
+                    </svg>
+                    About game provider
+                </h2>
+
+                <div class="game-provider-info-panel">
+                    <div class="provider-img">
+                        <picture>
+                            <img src="https://static.casino.guru/pict/123882/1x2gaming_white.svg?timestamp=1663483611000&imageDataId=374636&webp=true"
+                                alt="">
+                        </picture>
+                    </div>
+                    <div class="provider-body">
+                        <h5 class="neo-fs-32">
+                            1X2 Gaming
+                        </h5>
+                    </div>
+                    <div class="provider-stats">
+                        <ul>
+                            <li data-ga-id="gamDet_about_provider_btn_games">
+                                <a class="provider-btn" href="#" target="_blank">
+
+                                    <svg width="24" height="24">
+                                        <use xlink:href="#base_category_ico_games" />
+                                    </svg>
+                                    <span>
+                                        <b>Games</b> (115)
+                                    </span>
+                                    <svg class="ml-auto" width="24" height="24">
+                                        <use xlink:href="#base_ui_ico_arrow_right" />
+                                    </svg>
+
+                                </a>
+
+                            </li>
+                            <li data-ga-id="gamDet_about_provider_btn_casinos">
+                                <a class="provider-btn" href="#" target="_blank">
+                                    <svg width="22" height="22">
+                                        <use xlink:href="#base_category_ico_casinos" />
+                                    </svg>
+                                    <span>
+                                        <b>Real-money casinos</b> (128)
+                                    </span>
+
+                                    <svg class="ml-auto" width="24" height="24">
+                                        <use xlink:href="#base_ui_ico_arrow_right" />
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Class Fruit Review-->
+    <div class="section-game-review js-section-game-review">
+        <div class="col-game-review-pad">
+            <a name="review"></a>
+
+            <div class="typography">
+                <h2>Classic Fruit review</h2>
+                <p>Classic Fruit is a <strong>3-reel classic slot</strong> coming from the <a href="#">1x2 Gaming
+                        portfolio</a>. As expected
+                    the game has a simple appearance and doesn’t come with any bonus features attached.</p>
+                <p>In most other classic slots the biggest excitement comes from the strong paytable, but in this game
+                    even that is absent since the <strong>top payout is set at 200 coins per payline</strong>.</p>
+                <h3>Theme and Visual Details</h3>
+                <p>As you have surely guessed by now the slot comes with a <strong>fruit theme</strong>, which is common
+                    to a big number of classic slots.</p>
+
+                <figure>
+                    <div class="games-gallery hidden-xs hidden-xxs">
+                        <a href="#" target="_blank">
+                            <picture class="games-content-image" style="max-width:100%;">
+                                <img src="https://static.casino.guru/pict/88853/classic-fruit-win.png?maxWidth=860&webp=true&compressWebp=85"
+                                    alt="">
+                            </picture>
+                        </a>
+                    </div>
+                    <div class="visible-xs visible-xxs">
+                        <picture style="max-width:100%;">
+
+                        </picture>
+                    </div>
+                    <figcaption>
+                        Simple win in a simple slot
+                    </figcaption>
+                </figure>
+
+                <p><strong>The visual details are on a low level</strong>, but the game has a vibrant choice of colors
+                    and a few decent animations which make it reasonably attractive to the eye.</p>
+
+                <h3>Gameplay</h3>
+
+                <p>Compared to most other classic slots the gameplay in Classic Fruit is a bit more interesting. This is
+                    mainly due to the fact that most of the <strong>low paying Fruit symbols award a payout for 2 of a
+                        kind wins</strong>. Thanks to this there’s always some action on the reels and your balance
+                    doesn’t get eaten up too fast.</p>
+
+                <figure>
+                    <div class="video-wrapper">
+                        <iframe class="video" width="830" height="492" src="https://www.youtube.com/embed/PYfxLWIdpCM"
+                            allowfullscreen></iframe>
+                    </div>
+                    <figcaption>
+                        Gameplay video
+                    </figcaption>
+                </figure>
+
+                <h3>Bet sizes and payouts</h3>
+                <p>Classic Fruit is a <strong>5 payline slot</strong> where players can <strong>bet anywhere from $0.05
+                        up to $25 per spin</strong>.</p>
+                <p>The top payout in the game is set at 200 coins for landing a 3 of a kind win with the Red Seven
+                    symbol. <strong>The game has a low to medium variance and comes with an RTP value of
+                        96.21%</strong>.</p>
+                <figure>
+                    <div class="games-gallery hidden-xs hidden-xxs" data-module="games-gallery">
+                        <a href="https://static.casino.guru/pict/88854/classic-fruit-top-symbols-paytable.png?imageDataId=28223&timestamp=1653482727000&maxWidth=860"
+                            target="_blank">
+                            <picture class="games-content-image" style="max-width:100%;">
+                                <img src="https://static.casino.guru/pict/88854/classic-fruit-top-symbols-paytable.png?imageDataId=28223&timestamp=1653482727000&maxWidth=860"
+                                    alt="">
+                            </picture>
+                        </a>
+                    </div>
+                </figure>
+                <h3>Bonus features</h3>
+                <p>Unfortunately, like in most other classic slot, <strong>Classic Fruit doesn’t have any bonus
+                        features. The designers didn’t even add a Wild or Scatter symbol</strong>, so everything depends
+                    on the payouts of the regular symbols.</p>
+                <p>Another fact which doesn’t work in favor of the game is that <strong>the symbols can’t land stacked
+                        on the reels</strong>. This excludes the possibility of landing a full screen of matching
+                    symbols and getting a bigger payout.</p>
+                <p><strong>Landing a decent 3 of a kind win on the reels of Classic Fruit can be a challenge</strong>,
+                    but luckily two of a kind wins with the Cherry, Orange, Lemon and Apple symbols are quite frequent.
+                </p>
+                <p>This is the main reason why <strong>players can get frequent small payouts</strong> and keep their
+                    balance in place most of the time.</p>
+                <h3>Conclusion</h3>
+                <p>Classic Fruit is definitely not the game you would want to play if you are aiming to win big. The
+                    slot simply doesn’t have the potential for big payouts, since the top prize per payline in the slot
+                    is set at 200 coins.</p>
+                <p>
+
+                </p>
+                <p>Players can get small to medium payouts during base play but they won’t make a big impact on the
+                    positive side of your balance.</p>
+
+                <p>Simply put there are other better slots coming from 1x2 Gaming that you can try if you want to win
+                    big.</p>
+            </div>
+
+            <div class="text-left fs-xs my-xs c-black-60">
+                Author:
+                <a href="#" target="_blank" class="underline-link c-green">Phoenix</a>
+                |This review was last updated:29 Jun 2022
+            </div>
+        </div>
+    </div>
+
+    <!--Videos goes here-->
+    <div class="section-dark">
+        <div class="game-detail-games-carousel">
+            <div class="section-dark">
+                <div class="game-slider-panel js-slider-wrapper">
+                    <div class="neo-fs-20 js-slider-arrows flex items-center">
+                        Similar games to Classic Fruit
+                    </div>
+                    <!-- row -->
+                    <div class="game-slider-scroll-wrapper">
+                        <div class="game-slider item-slider">
+                            <div class="game-item">
+                                <a class="game-item-img" href="#" target="_blank">
+                                    <picture class="load-animation">
+                                        <img src="#" alt="">
+                                    </picture>
+                                    <div class="game-item-overlay">
+                                        <div class="overlay-text">
+                                            <span>Play for Free</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="game-item-name" href="#">
+                                    Hurricash
+                                    <span>by Caleta</span>
+                                </a>
+                            </div>
+
+                            <div class="game-item" data-ga-param="Traveling Treasures India">
+                                <a class="game-item-img" href="#" target="_blank">
+
+                                    <picture class="load-animation">
+                                    </picture>
+                                    <div class="game-item-overlay">
+                                        <div class="overlay-text">
+                                            <span>Play for Free</span>
+                                        </div>
+
+                                    </div>
+                                </a>
+                                <a class="game-item-name" href="#">
+                                    Traveling Treasures India
+                                    <span>by OneTouch</span>
+                                </a>
+                            </div>
+
+                            <div class="game-item">
+                                <a class="game-item-img" href="#" target="_blank">
+                                    <picture class="load-animation">
+                                    </picture>
+                                    <div class="game-item-overlay">
+
+                                        <div class="overlay-text">
+                                            <span>Play for Free</span>
+                                        </div>
+
+                                    </div>
+                                </a>
+                                <a class="game-item-name" href="#">
+                                    Gold Bricks
+                                    <span>by Rival</span>
+                                </a>
+                            </div>
+
+                            <div class="game-item" data-ga-id="gamDet_sld_SIMILAR_elm_game"
+                                data-ga-param="Super Wild Megaways">
+                                <a class="game-item-img" href="#" target="_blank" rel="false">
+
+                                    <picture class="load-animation">
+                                        <img src="#" alt="">
+                                    </picture>
+                                    <div class="game-item-overlay">
+                                        <div class="overlay-text">
+                                            <span>Play for Free</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="game-item-name" href="#">
+                                    Super Wild Megaways
+                                    <span>by Stakelogic</span>
+                                </a>
+                            </div>
+
+                            <div class="game-item">
+                                <a class="game-item-img" href="#" target="_blank" rel="false">
+
+                                    <picture class="load-animation">
+                                        <img src="#" alt="">
+                                    </picture>
+
+                                    <div class="game-item-overlay">
+                                        <div class="overlay-text">
+                                            <span>Play for Free</span>
+                                        </div>
+
+                                    </div>
+                                </a>
+                                <a class="game-item-name" href="#">
+                                    Disco Spin
+                                    <span>by InBet</span>
+                                </a>
+                            </div>
+
+                            <div class="game-item">
+                                <a class="game-item-img" href="#" target="_blank" rel="false">
+
+                                    <picture class="load-animation">
+                                    </picture>
+
+                                    <div class="game-item-overlay">
+
+                                        <span class="btn-play">
+                                            <svg width="18" height="18" class="c-white">
+                                                <use xlink:href="#base_ui_ico_play_mark" />
+                                            </svg>
+                                        </span>
+                                        <div class="overlay-text">
+                                            <span>Play for Free</span>
+                                        </div>
+
+                                    </div>
+                                </a>
+                                <a class="game-item-name" href="#">
+                                    Super 7 Reels
+                                    <span>by Merkur Slots</span>
+                                </a>
+                            </div>
+                            <div class="game-item">
+                                <a class="game-item-img" href="#" target="_blank">
+
+                                    <picture class="load-animation">
+                                    </picture>
+
+                                    <div class="game-item-overlay">
+                                        <div class="overlay-text">
+                                            <span>Play for Free</span>
+                                        </div>
+
+                                    </div>
+                                </a>
+                                <a class="game-item-name" href="#">
+                                    Beastwood
+                                    <span>by Quickspin</span>
+                                </a>
+                            </div>
+
+                            <div class="game-item">
+                                <a class="game-item-img" href="#" target="_blank" rel="false">
+                                    <picture class="load-animation">
+                                        <img src="#" alt="">
+                                    </picture>
+
+                                    <div class="game-item-overlay">
+                                        <span class="btn-play">
+                                            <svg width="18" height="18" class="c-white">
+                                                <use xlink:href="#base_ui_ico_play_mark" />
+                                            </svg>
+                                        </span>
+                                        <div class="overlay-text">
+                                            <span>Play for Free</span>
+                                        </div>
+
+                                    </div>
+                                </a>
+                                <a class="game-item-name" href="#">
+                                    Ten Times Wins
+                                    <span>by Rival</span>
+                                </a>
+                            </div>
+
+                            <div class="game-item">
+                                <a class="game-item-img" href="#" target="_blank">
+
+                                    <picture class="load-animation">
+                                        <img src="#" alt="">
+                                    </picture>
+
+                                    <div class="game-item-overlay">
+                                        <div class="overlay-text">
+                                            <span>Play for Free</span>
+                                        </div>
+
+                                    </div>
+                                </a>
+                                <a class="game-item-name" href="#">
+                                    Fruit Fever
+                                    <span>by Swintt</span>
+                                </a>
+                            </div>
+
+                            <div class="game-item">
+                                <a class="game-item-img" href="#" target="_blank">
+
+                                    <picture class="load-animation">
+                                    </picture>
+
+                                    <div class="game-item-overlay">
+
+                                        <div class="overlay-text">
+                                            <span>Play for Free</span>
+                                        </div>
+
+                                    </div>
+                                </a>
+                                <a class="game-item-name" href="#">
+                                    Golden Horns
+                                    <span>by Betsoft Gaming</span>
+                                </a>
+                            </div>
+
+                            <div class="game-item">
+                                <a class="game-item-img" href="#" target="_blank">
+
+                                    <picture class="load-animation">
+                                        <img src="#" alt="">
+                                        <div class="game-item-overlay">
+
+                                            <div class="overlay-text">
+                                                <span>Play for Free</span>
+                                            </div>
+
+                                        </div>
+                                </a>
+                                <a class="game-item-name" href="#"">
+Dragon's Tavern: Bonus Buy
+<span>by Evoplay</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class=" section-dark">
+                <div class="game-slider-panel js-slider-wrapper">
+                    <div class="neo-fs-20 js-slider-arrows flex items-center">
+                        <svg width="22" height="22" class="game-slider-panel-icon">
+                            <use xlink:href="#filter_ico_games" />
+                        </svg>
+                        More games from 1X2 Gaming
+                    </div>
+                    <!-- row -->
+                    <div class="game-slider-scroll-wrapper">
+                        <div class="game-slider item-slider">
+
+                            <div class="game-item">
+                                <a class="game-item-img" href="#" target="_blank" rel="false">
+
+                                    <picture class="load-animation">
+                                        <img src="#" alt="">
+                                    </picture>
+                                    <div class="game-item-overlay">
+                                        <div class="overlay-text">
+                                            <span>Play for Free</span>
+                                        </div>
+
+                                    </div>
+                                </a>
+                                <a class="game-item-name" href="#">
+                                    Mystery Woods
+                                    <span>by 1X2 Gaming</span>
+                                </a>
+                            </div>
+
+                            <div class="game-item" data-ga-param="Smoking Hot Fruits Stacks">
+                                <a class="game-item-img" href="#" target="_blank">
+                                    <picture class="load-animation">
+                                        <img src="#" alt=""></picture>
+                                    <div class="game-item-overlay">
+                                        <div class="overlay-text">
+                                            <span>Play for Free</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="game-item-name" href="#">
+                                    Smoking Hot Fruits Stacks
+                                    <span>by 1X2 Gaming</span>
+                                </a>
+                            </div>
+
+                            <div class="game-item" data-ga-param="Smoking Hot Fruits Stacks">
+                                <a class="game-item-img" href="#" target="_blank">
+
+                                    <picture class="load-animation">
+                                        <img src="#" alt=""></picture>
+
+                                    <div class="game-item-overlay">
+                                        <div class="overlay-text">
+                                            <span>Play for Free</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="game-item-name" href="#">
+                                    Smoking Hot Fruits Stacks
+                                    <span>by 1X2 Gaming</span>
+                                </a>
+                            </div>
+
+                            <div class="game-item" data-ga-param="Smoking Hot Fruits Stacks">
+                                <a class="game-item-img" href="#" target="_blank">
+
+                                    <picture class="load-animation">
+                                        <img src="#" alt=""></picture>
+                                    <div class="game-item-overlay">
+                                        <div class="overlay-text">
+                                            <span>Play for Free</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="game-item-name" href="#">
+                                    Smoking Hot Fruits Stacks
+                                    <span>by 1X2 Gaming</span>
+                                </a>
+                            </div>
+                            <div class="game-item" data-ga-param="Smoking Hot Fruits Stacks">
+                                <a class="game-item-img" href="#" target="_blank">
+                                    <picture class="load-animation">
+                                        <img src="#" alt=""></picture>
+                                    <div class="game-item-overlay">
+                                        <div class="overlay-text">
+                                            <span>Play for Free</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="game-item-name" href="#">
+                                    Smoking Hot Fruits Stacks
+                                    <span>by 1X2 Gaming</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+              </div>
+        </div>
+    </div>
+</div>
+
+<div class="section-dark-semi game-detail-tips-wrapper">
+    <div class="game-detail-tips-head">
+        <div class="game-detail-tips-head-title">
+            Learn how casino games work
+        </div>
+        <div class="game-detail-tips-head-description">
+            Read our educational articles to get a better understanding of game rules, odds of
+            winnings, as well as other aspects of online gambling.
+        </div>
+    </div>
+    <div class="game-detail-tips-slider-wrapper">
+        <div class="game-detail-tips-slider flickity-black-bg">
+            <div class="game-detail-news-item-wrapper">
+                <a class="news-item news-item-dark" href="#">
+                    <span class="news-item-img-placeholder block load-animation">
+                        <img class="news-item-img">
+                    </span>
+                    <span class="news-item-body block">
+                        <span class="c-grey-6 text-uppercase fs-m block created-date">
+                            30 Oct 2022
+                        </span>
+                        <div class="neo-fs-22 c-grey-7 news-item-heading">How Slots Work | Slot
+                            Machine Randomness, RTP &amp; Volatility</div>
+                        <div class="news-item-perex block">Are slot machine spins really random?
+                            Read more about how slots actually work and learn about RNG, return to
+                            player and volatility of slot machines.</div>
+                    </span>
+                </a>
+            </div>
+            
+            <div class="game-detail-news-item-wrapper">
+                <a class="news-item news-item-dark" href="#">
+                    <span class="news-item-img-placeholder block load-animation">
+                        <img class="news-item-img">
+                    </span>
+                    <span class="news-item-body block">
+                        <span class="c-grey-6 text-uppercase fs-m block created-date">
+                            30 Oct 2022
+                        </span>
+                        <div class="neo-fs-22 c-grey-7 news-item-heading">How Slots Work | Slot
+                            Machine Randomness, RTP &amp; Volatility</div>
+                        <div class="news-item-perex block">Are slot machine spins really random?
+                            Read more about how slots actually work and learn about RNG, return to
+                            player and volatility of slot machines.</div>
+                    </span>
+                </a>
+            </div>
+
+            <div class="game-detail-news-item-wrapper">
+                <a class="news-item news-item-dark" href="#">
+                    <span class="news-item-img-placeholder block load-animation">
+                        <img class="news-item-img">
+                    </span>
+                    <span class="news-item-body block">
+                        <span class="c-grey-6 text-uppercase fs-m block created-date">
+                            30 Oct 2022
+                        </span>
+                        <div class="neo-fs-22 c-grey-7 news-item-heading">How Slots Work | Slot
+                            Machine Randomness, RTP &amp; Volatility</div>
+                        <div class="news-item-perex block">Are slot machine spins really random?
+                            Read more about how slots actually work and learn about RNG, return to
+                            player and volatility of slot machines.</div>
+                    </span>
+                </a>
+            </div>
+
+            <div class="game-detail-news-item-wrapper">
+                <a class="news-item news-item-dark" href="#">
+                    <span class="news-item-img-placeholder block load-animation">
+                        <img class="news-item-img">
+                    </span>
+                    <span class="news-item-body block">
+                        <span class="c-grey-6 text-uppercase fs-m block created-date">
+                            30 Oct 2022
+                        </span>
+                        <div class="neo-fs-22 c-grey-7 news-item-heading">How Slots Work | Slot
+                            Machine Randomness, RTP &amp; Volatility</div>
+                        <div class="news-item-perex block">Are slot machine spins really random?
+                            Read more about how slots actually work and learn about RNG, return to
+                            player and volatility of slot machines.</div>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Footer goes here-->
+<div class="page-footer page-footer-games">
+<div class="col-main">
+    <div class="page-footer-cols">
+        <a href="#" class="logo-guru" rel="home">
+            <img src="https://static.casino.guru/res/cc26f89e34ef12cd4dac6731c76aaaa5a/images/casinoguru_logo.svg"
+                alt="Classic Fruit Free Play in Demo Mode and Game Review" width="143" height="59">
+        </a>
+        <div class="footer-col-social">
+            <div>
+                <label>Follow us</label>
+                <div class="page-footer-social">
+                    <a href="https://www.facebook.com/casino.guru.admin" class="social-link fb"
+                        title="Facebook" target="_blank" rel="noopener">
+                        <svg width="32" height="32" class="c-grey-3">
+                            <use xlink:href="#base_ui_ico_facebook" />
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/CasinoGuruTweet" class="social-link twitter" title="Twitter"
+                        target="_blank" rel="noopener">
+                        <!-- base_ui_ico_twitter -->
+                        <svg width="32" height="32" class="c-grey-3" viewbox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0)">
+                                <path d="M20.3291 2.83087H3.67087C3.44829 2.83152 3.23501 2.92023 3.07762 3.07762C2.92023 3.23501 2.83152 3.44829 2.83087 3.67087V20.3291C2.83152 20.5517 2.92023 20.765 3.07762 20.9224C3.23501 21.0798 3.44829 21.1685 3.67087 21.1691H20.3291C20.5517 21.1685 20.765 21.0798 20.9224 20.9224C21.0798 20.765 21.1685 20.5517 21.1691 20.3291V3.67087C21.1685 3.44829 21.0798 3.23501 20.9224 3.07762C20.765 2.92023 20.5517 2.83152 20.3291 2.83087ZM18.4999 8.11647C18.1728 8.54527 17.786 8.92501 17.3513 9.24412C17.3553 9.36296 17.3574 9.4818 17.3574 9.6027C17.3574 13.2663 14.5974 17.4933 9.55078 17.4933C8.21447 17.4943 6.9009 17.1475 5.73918 16.4871C5.71773 16.4752 5.70093 16.4564 5.69151 16.4337C5.68208 16.4111 5.68058 16.3859 5.68725 16.3623C5.69391 16.3386 5.70835 16.318 5.72823 16.3036C5.7481 16.2892 5.77226 16.2819 5.79678 16.2829C5.86425 16.2853 5.93195 16.2865 5.99989 16.2865C7.23745 16.2873 8.43869 15.8683 9.40734 15.0981C8.86441 15.0862 8.33717 14.9137 7.89217 14.6025C7.44717 14.2912 7.10437 13.8551 6.90703 13.3491C6.90017 13.3314 6.89806 13.3121 6.90092 13.2933C6.90378 13.2744 6.91151 13.2567 6.92333 13.2417C6.93516 13.2268 6.95067 13.2152 6.96835 13.2081C6.98602 13.201 7.00524 13.1987 7.02411 13.2013C7.13562 13.2158 7.24796 13.2231 7.36041 13.2232C7.60483 13.223 7.8481 13.1899 8.0837 13.1249C7.48514 12.9993 6.94494 12.6792 6.54727 12.2146C6.14959 11.7499 5.91679 11.1668 5.88514 10.556C5.88437 10.5371 5.8885 10.5184 5.89713 10.5016C5.90576 10.4847 5.91859 10.4705 5.93438 10.4601C5.95017 10.4497 5.96837 10.4436 5.98723 10.4423C6.00608 10.4411 6.02494 10.4447 6.04197 10.4529C6.3816 10.6125 6.74979 10.7025 7.12478 10.7173C6.5661 10.3371 6.16427 9.76717 5.99384 9.11322C5.82341 8.45927 5.89594 7.7657 6.19798 7.16115C6.20615 7.14492 6.21824 7.13097 6.23316 7.12058C6.24807 7.11018 6.26533 7.10367 6.2834 7.10162C6.30146 7.09957 6.31975 7.10206 6.33661 7.10885C6.35347 7.11565 6.36837 7.12653 6.37997 7.14053C7.06455 7.95997 7.91106 8.62914 8.8664 9.10607C9.82174 9.583 10.8653 9.85741 11.9317 9.91209C11.8837 9.70447 11.8596 9.49204 11.86 9.27895C11.8566 8.54727 12.1439 7.84419 12.6588 7.32432C13.1737 6.80444 13.8739 6.51034 14.6056 6.50669C14.9818 6.50637 15.354 6.58415 15.6986 6.7351C16.0431 6.88605 16.3526 7.10689 16.6075 7.38363C17.1241 7.28013 17.6231 7.10271 18.0891 6.85685C18.1092 6.84604 18.1322 6.84178 18.1549 6.84466C18.1775 6.84755 18.1987 6.85744 18.2154 6.87296C18.2322 6.88847 18.2437 6.90882 18.2483 6.93118C18.2529 6.95354 18.2504 6.97678 18.2412 6.99765C18.0102 7.51467 17.6277 7.94938 17.1443 8.24422C17.5651 8.1931 17.9786 8.09345 18.3765 7.94726C18.3987 7.93923 18.4229 7.93863 18.4455 7.94554C18.4681 7.95244 18.4878 7.96649 18.5017 7.98557C18.5156 8.00464 18.523 8.02772 18.5226 8.05132C18.5223 8.07493 18.5143 8.09779 18.4999 8.11647Z" />
+                            </g>
+                            <defs>
+                                <clippath id="clip0">
+                                    <rect width="24" height="24" fill="white" />
+                                </clippath>
+                            </defs>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link instagram"
+                        title="Instagram" target="_blank" rel="noopener">
+                        <!-- base_ui_ico_insta -->
+                        <svg class="c-grey-3" width="32" height="32" viewbox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.3412 12.0396C14.3355 12.6544 14.0868 13.2418 13.6494 13.6738C13.2119 14.1057 12.6214 14.347 12.0067 14.345C10.7078 14.3706 9.65016 13.2849 9.64999 11.9623C9.64985 10.7147 10.7454 9.64377 12.0116 9.65373C12.3216 9.65615 12.628 9.71992 12.9132 9.84138C13.1985 9.96283 13.4568 10.1396 13.6734 10.3614C13.89 10.5832 14.0605 10.8457 14.1751 11.1337C14.2898 11.4218 14.3462 11.7297 14.3412 12.0396ZM17.2586 9.458C17.2702 11.1719 17.2716 12.8859 17.2628 14.6C17.2685 14.9481 17.2047 15.2938 17.0752 15.617C16.9456 15.9401 16.7529 16.2342 16.5083 16.482C16.2638 16.7297 15.9722 16.9262 15.6508 17.06C15.3294 17.1937 14.9845 17.262 14.6363 17.2608C12.8749 17.2766 11.1133 17.2764 9.35155 17.2603C9.00534 17.2616 8.66236 17.1938 8.34267 17.0609C8.02298 16.928 7.73299 16.7327 7.48965 16.4864C7.24632 16.2401 7.05453 15.9478 6.92549 15.6266C6.79646 15.3053 6.73277 14.9615 6.73815 14.6154C6.73065 12.8458 6.73045 11.0763 6.73755 9.30668C6.74938 8.64558 7.01188 8.01365 7.47195 7.53874C7.93202 7.06384 8.55531 6.78142 9.21571 6.74863C10.1433 6.72094 11.0723 6.74332 12.0007 6.74332V6.7374C12.8419 6.7374 13.683 6.73468 14.5242 6.73805C15.8004 6.74313 16.7196 7.38728 17.1293 8.594C17.2176 8.87341 17.2612 9.16499 17.2586 9.458ZM15.4884 12.0563C15.4962 11.5938 15.4118 11.1343 15.2402 10.7048C15.0686 10.2752 14.8132 9.88414 14.4889 9.55432C14.1646 9.2245 13.7778 8.96255 13.3512 8.78374C12.9246 8.60493 12.4667 8.51285 12.0041 8.51285C10.0874 8.51112 8.51197 10.0598 8.51043 11.9471C8.5088 13.9332 10.0347 15.4862 11.9915 15.4901C12.909 15.4931 13.7906 15.1343 14.4453 14.4915C15.0999 13.8486 15.4747 12.9736 15.4884 12.0563ZM15.9549 8.56869C15.9575 8.46776 15.9301 8.36831 15.8761 8.28299C15.8221 8.19767 15.744 8.13032 15.6516 8.08949C15.5593 8.04866 15.4569 8.03619 15.3574 8.05368C15.258 8.07116 15.166 8.1178 15.0931 8.18768C15.0202 8.25755 14.9697 8.34751 14.9481 8.44613C14.9264 8.54475 14.9346 8.64758 14.9715 8.74157C15.0084 8.83555 15.0724 8.91645 15.1554 8.97398C15.2383 9.03152 15.3365 9.0631 15.4375 9.06472C15.5046 9.06854 15.5718 9.0585 15.6349 9.03521C15.698 9.01191 15.7556 8.97587 15.8042 8.92933C15.8527 8.88279 15.8911 8.82675 15.9171 8.76471C15.943 8.70266 15.9559 8.63593 15.9549 8.56869L15.9549 8.56869ZM21.1691 3.67087V20.3291C21.1685 20.5517 21.0798 20.765 20.9224 20.9224C20.765 21.0798 20.5517 21.1685 20.3291 21.1691H3.67087C3.44829 21.1685 3.23501 21.0798 3.07762 20.9224C2.92023 20.765 2.83152 20.5517 2.83087 20.3291V3.67087C2.83152 3.44829 2.92023 3.23501 3.07762 3.07762C3.23501 2.92023 3.44829 2.83152 3.67087 2.83087H20.3291C20.5517 2.83152 20.765 2.92023 20.9224 3.07762C21.0798 3.23501 21.1685 3.44829 21.1691 3.67087L21.1691 3.67087ZM18.4181 14.5991C18.4206 12.893 18.4203 11.1869 18.4172 9.48082C18.4243 8.96453 18.3306 8.45183 18.1416 7.97135C17.8596 7.26381 17.3711 6.65759 16.7397 6.23166C16.1083 5.80574 15.3632 5.57987 14.6016 5.58347C13.7366 5.58155 12.8717 5.58313 12.0067 5.5831C11.1894 5.5831 10.3717 5.5679 9.5549 5.58958C9.15189 5.59715 8.75068 5.64551 8.35742 5.73394C6.82283 6.09391 5.58497 7.67296 5.58219 9.24782C5.57906 11.0412 5.5802 12.8346 5.5856 14.6279C5.58303 14.8978 5.61016 15.167 5.66652 15.4309C5.85422 16.2862 6.33121 17.0505 7.017 17.595C7.70279 18.1394 8.5554 18.4307 9.43096 18.4195C11.145 18.4209 12.8591 18.4269 14.573 18.4137C14.9127 18.4099 15.2507 18.3645 15.5794 18.2784C16.3961 18.0713 17.1197 17.5962 17.6343 16.9291C18.149 16.262 18.425 15.4416 18.4181 14.5991L18.4181 14.5991Z" />
+                            <defs>
+                                <clippath id="clip0">
+                                    <rect width="24" height="24" fill="white" />
+                                </clippath>
+                            </defs>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link youtube"
+                        title="YouTube" target="_blank" rel="noopener">
+                        <!-- base_ui_ico_youtube -->
+                        <svg width="32" height="32" class="c-grey-3" viewbox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0)">
+                                <path d="M10.662 9.84196L14.1662 11.9998L10.662 14.1576V9.84196ZM21.1816 3.67087V20.3291C21.181 20.5517 21.0923 20.765 20.9349 20.9224C20.7775 21.0798 20.5642 21.1685 20.3416 21.1691H3.68338C3.4608 21.1685 3.24752 21.0798 3.09013 20.9224C2.93274 20.765 2.84403 20.5517 2.84338 20.3291V3.67087C2.84403 3.44829 2.93274 3.23501 3.09013 3.07762C3.24752 2.92023 3.4608 2.83152 3.68338 2.83087H20.3416C20.5642 2.83152 20.7775 2.92023 20.9349 3.07762C21.0923 3.23501 21.181 3.44829 21.1816 3.67087ZM19.0347 11.9998C19.0347 11.9998 19.0258 9.74388 18.7315 8.65606C18.6512 8.36019 18.4943 8.0907 18.2767 7.8747C18.0592 7.65869 17.7886 7.50379 17.4921 7.42556C16.3954 7.14022 12.0084 7.14022 12.0084 7.14022C12.0084 7.14022 7.70163 7.12239 6.60489 7.40772C5.99855 7.56822 5.41897 8.05864 5.25847 8.65606C4.96422 9.74388 4.99097 11.9998 4.99097 11.9998C4.99097 11.9998 4.96422 14.2557 5.25847 15.3435C5.41897 15.941 6.00747 16.4314 6.60489 16.5919C7.70163 16.8861 12.0084 16.8594 12.0084 16.8594C12.0084 16.8594 16.3151 16.8772 17.4119 16.5919C18.0182 16.4314 18.5799 15.941 18.7404 15.3435C19.0347 14.2646 19.0347 11.9998 19.0347 11.9998Z" />
+                            </g>
+                            <defs>
+                                <clippath id="clip0">
+                                    <rect width="24" height="24" fill="white" />
+                                </clippath>
+                            </defs>
+                        </svg>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-col-1-4">
+            <span class="footer-col-label">Gambling guide</span>
+            <ul class="c-white">
+                  <li>
+                    <a href="#" class="flex items-center my-xs">
+                        <svg class="mr-s c-green flex-no-shrink shrink-icon " width="24" height="24">
+                            <use xlink:href="#base_category_ico_guides"></use>
+                        </svg>
+                        <span>How to choose a casino</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="flex items-center my-xs">
+                        <svg class="mr-s c-green flex-no-shrink shrink-icon " width="24" height="24">
+                            <use xlink:href="#base_category_ico_guides"></use>
+                        </svg>
+                        <span>How to choose a casino</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="flex items-center my-xs">
+                        <svg class="mr-s c-green flex-no-shrink shrink-icon " width="24" height="24">
+                            <use xlink:href="#base_category_ico_guides" />
+                        </svg>
+                        <span>Games of chance: RTP and viriance<span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="flex items-center my-xs">
+                        <svg class="mr-s c-green flex-no-shrink shrink-icon " width="24" height="24">
+                            <use xlink:href="#base_category_ico_guides" />
+                        </svg>
+                        <span>Fair gambling codex</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="flex items-center my-xs">
+                        <svg class="mr-s c-green flex-no-shrink shrink-icon " width="24" height="24">
+                            <use xlink:href="#base_category_ico_guides" />
+                        </svg>
+                        <span>Responsible gambling and help for problem gamblers</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer-col-1-4">
+            <span class="footer-col-label">Games guide</span>
+            <ul class="c-white">
+
+                <li>
+                    <a href="#" class="flex items-center my-xs">
+                        <svg class="mr-s c-green flex-no-shrink shrink-icon " width="24" height="24">
+                            <use xlink:href="#base_game_ico_slots" />
+                        </svg>
+                        <span>Slot machines</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="flex items-center my-xs">
+                        <svg class="mr-s c-green flex-no-shrink shrink-icon " width="24" height="24">
+                            <use xlink:href="#base_game_ico_roulette" />
+                        </svg>
+
+                        <span>Roulette</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="flex items-center my-xs">
+                        <svg class="mr-s c-green flex-no-shrink shrink-icon " width="24" height="24">
+                            <use xlink:href="#base_game_ico_blackjack" />
+                        </svg>
+                        <span>Blackjack</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="flex items-center my-xs">
+                        <svg class="mr-s c-green flex-no-shrink shrink-icon " width="24" height="24">
+                            <use xlink:href="#base_game_ico_videopoker" />
+                        </svg>
+
+                        <span>Video Poker</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex items-center my-xs">
+                        <svg class="mr-s c-green flex-no-shrink shrink-icon " width="24" height="24">
+                            <use xlink:href="#base_game_ico_baccarat" />
+                        </svg>
+                        <span>Baccarat</span>
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="footer-col-1-4">
+
+            <span class="footer-col-label">Casino Guru</span>
+            <ul class="c-white">
+
+                <li>
+                    <a href="#" class="flex items-center my-xs">
+                        <svg class="mr-s c-green flex-no-shrink shrink-icon " width="24" height="24">
+                            <use xlink:href="#base_category_ico_casinos" />
+                        </svg>
+                        <span>Online Casinos</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://casino.guru/free-casino-games" class="flex items-center my-xs">
+                        <svg class="mr-s c-green flex-no-shrink shrink-icon " width="24" height="24">
+                            <use xlink:href="#base_category_ico_games" />
+                        </svg>
+                        <span>Games</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="flex items-center my-xs">
+                        <svg class="mr-s c-green flex-no-shrink shrink-icon " width="24" height="24">
+                            <use xlink:href="#base_category_ico_bonuses" />
+                        </svg>
+                        <span>Bonuses</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center my-xs">
+                        <svg class="mr-s c-green flex-no-shrink shrink-icon " width="24" height="24">
+                            <use xlink:href="#base_category_ico_complaints" />
+                        </svg>
+                        <span>Complaints</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="flex items-center my-xs">
+                        <svg class="mr-s c-green flex-no-shrink shrink-icon " width="24" height="24">
+                            <use xlink:href="#base_category_ico_forum" />
+                        </svg>
+                        <span>Forum</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="flex items-center my-xs">
+                        <svg class="mr-s c-green flex-no-shrink shrink-icon " width="24" height="24">
+                            <use xlink:href="#base_ui_ico_rating_star" />
+                        </svg>
+                        <span>User reviews</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#"" class="flex items-center my-xs">
+                        <svg class="mr-s c-green flex-no-shrink shrink-icon " width="24" height="24">
+                            <use xlink:href="#base_ui_ico_new" />
+                        </svg>
+                        <span>ZOOMin</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="flex items-center my-xs">
+                        <svg class="mr-s c-green flex-no-shrink shrink-icon " width="24" height="24">
+                            <use xlink:href="#base_ui_ico_press" />
+                        </svg>
+                        <span>News</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="flex items-center my-xs">
+                        <svg class="mr-s c-green flex-no-shrink shrink-icon " width="24" height="24">
+                            <use xlink:href="#base_ui_ico_competition" />
+                        </svg>
+                        <span>Casino Guru Awards</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-col-1-4">
+            <span class="footer-col-label">About us</span>
+            <ul class="c-white">
+
+                <li>
+                    <a href="#" class="flex items-center my-xs">
+                        <svg class="mr-s c-green flex-no-shrink shrink-icon " width="24" height="24">
+                            <use xlink:href="#base_ui_ico_home" />
+                        </svg>
+                        <span>About us</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#"
+                        class="flex items-center my-xs">
+                        <svg class="mr-s c-green flex-no-shrink shrink-icon " width="24" height="24">
+                            <use xlink:href="#base_ui_ico_history" />
+                        </svg>
+                        <span>History</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="flex items-center my-xs">
+                        <svg class="mr-s c-green flex-no-shrink shrink-icon " width="24" height="24">
+                            <use xlink:href="#base_ui_ico_team" />
+                        </svg>
+                        <span>Team</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="flex items-center my-xs">
+                        <svg class="mr-s c-green flex-no-shrink shrink-icon " width="24" height="24">
+                            <use xlink:href="#base_ui_ico_contact" />
+                        </svg>
+                        <span>Contact</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="flex items-center my-xs">
+                        <svg class="mr-s c-green flex-no-shrink shrink-icon " width="24" height="24">
+                            <use xlink:href="#base_ui_ico_terms_of_use" />
+                        </svg>
+                        <span>Terms of use</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer-col-partners">
+            <a target="_blank" href="#" class="guru-academy">
+                <div class="footer-col-label">Casino Guru Academy</div>
+                <img data-src="https://static.casino.guru/res/a4fa7522c4593a2e62f8b38f58036cf5a/images/footer/guru-academy-logo.svg">
+                <p>Free professional educational courses for online casino employees aimed at industry best
+                    practices, improving player experience, and fair approach to gambling.</p>
+                <svg width="20" height="20" class="arrow">
+                    <use xlink:href="#base_ui_ico_chevron_right" />
+                </svg>
+            </a>
+            <a target="_blank" href="#"
+                class="guru-self-exclusion">
+                <div class="footer-col-label">Global Self-Exclusion Initiative</div>
+                <img data-src="https://static.casino.guru/res/9285890179b0df3e37339a75e464fd7ea/images/footer/self-exclusion-logo.svg">
+                <p>An initiative we launched with the goal to create a global self-exclusion system, which will
+                    allow vulnerable players to block their access to all online gambling opportunities.</p>
+                <svg width="20" height="20" class="arrow">
+                    <use xlink:href="#base_ui_ico_chevron_right" />
+                </svg>
+            </a>
+        </div>
+
+        <div class="footer-col-newsletter">
+            <form action="javascript:" data-module="footer-newsletter">
+                <div class="footer-col-label">Subscribe to our newsletter</div>
+                <div class="flex">
+                    <div class="cg-input-wrapper">
+                        <input type="email" id="footerEmail" name="footerEmail" class="cg-input-field dark"
+                            tabindex="0" placeholder=" ">
+                        <label class="cg-input-label" for="footerEmail">Insert your e-mail</label>
+                        <label class="cg-input-label-top" for="footerEmail">Insert your e-mail</label>
+                    </div>
+                    <button data-userscore-click-target data-userscore-click-value="15" type="submit"
+                        class="btn js-footer-newsletter-submit js-btn-loader">
+                        <span class="loader"></span>
+                        Subscribe
+                    </button>
+                </div>
+                <div class="c-red js-footer-newsletter-error my-s"></div>
+                <div class="c-grey-4 my-xs">
+                    <label class="flex items-center">
+                        <input class="js-footer-newsletter-age-confirm" type="checkbox" name="confirmAge">
+                        <span class="custom-email-checkbox mr-s"></span>
+                        I am at least 18 years old and legally allowed to play in a casino
+                    </label>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="page-footer-logos">
+
+        <div class="footer-col-label">Play responsibly and in moderation.</div>
+        <div class="my-l">
+
+            <span class="footer-logo">
+                <img alt="18" height="35" src="https://static.casino.guru/pict/107714/18.png?timestamp=1661497565000&imageDataId=365439"
+                    width="35">
+                </span>
+
+            <a href="#" target="_blank" rel="nofollow noopener"
+                class="footer-logo">
+                <img alt="GPWA - casino.guru" height="35" src="https://static.casino.guru/pict/106601/GPWA-casino-guru-gif?timestamp=1661497529000&imageDataId=365438" width="94">
+            </a>
+
+            <a href="#" target="_blank" rel="nofollow noopener" class="footer-logo">
+                <img alt="Be Gamble Aware" height="35"
+                    src="https://static.casino.guru/pict/106593/begambleawareorg.png?timestamp=1661497379000&imageDataId=365436"
+                    width="270">
+            </a>
+
+            <a href="#" target="_blank" rel="nofollow noopener" class="footer-logo">
+                <img alt="GamCare" height="35"
+                    src="https://static.casino.guru/pict/106599/GamCare.svg?timestamp=1664780358000&imageDataId=383689"
+                    width="121">
+            </a>
+
+            <a href="#" target="_blank" rel="nofollow noopener"
+                class="footer-logo">
+                <img alt="Gambling  Therapy" height="35"
+                    src="https://static.casino.guru/pict/106597/GordonMoody.svg?timestamp=1664780385000&imageDataId=383690"
+                    width="101">
+            </a>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <p>
+            Casino.guru is an independent source of information about online casinos and online casino games,
+            not controlled by any gambling operator. All our reviews and guides are created honestly, according
+            to the best knowledge and judgement of the members of our independent expert team; however, they are
+            intended for informative purposes only and should not be construed as, nor relied upon as, legal
+            advice. You should always make sure that you meet all regulatory requirements before playing in any
+            selected casino.
+            Copyright ©2022
+        </p>
+    </select>
+        <div id="container">
+            <form>
+                <select id="framework">
+                    <option value="1"><a href="https://kasinoguru-bg.com/Classic-Fruit-slot-igraj-bezplatno">Bulgarian</a></option>
+                    <option value="2"><a href="https://kasinoguru-cz.com/classic-fruit-zdarma-hrat-automat">Czech</a></option>
+                    <option value="3"><a href="https://kasinoguru-cz.com/classic-fruit-zdarma-hrat-automat">Czech</a></option>
+                    <option value="4"><a href="https://kasinoguru-cz.com/classic-fruit-zdarma-hrat-automat">Danish</a></option>
+                    <option value="5"><a href="https://kasinoguru-cz.com/classic-fruit-zdarma-hrat-automat">English</a></option>
+                    <option value="6"><a href="https://kasinoguru-cz.com/classic-fruit-zdarma-hrat-automat">Finnish</a></option>
+                    <option value="7"><a href="https://kasinoguru-cz.com/classic-fruit-zdarma-hrat-automat">German</a></option>
+                    <option value="8"><a href="https://kasinoguru-cz.com/classic-fruit-zdarma-hrat-automat">Geek</a></option>
+                    <option value="9"><a href="https://kasinoguru-cz.com/classic-fruit-zdarma-hrat-automat">Chinese</a></option>
+                    <option value="10"><a href="https://kasinoguru-cz.com/classic-fruit-zdarma-hrat-automat">Korea</a></option>
+                </select>
+                <button id="btn"></button>
+            </form>
+        </div>
+        <script>
+            const btn = document.querySelector('#btn');
+            const sb = document.querySelector('#framework')
+            btn.onclick = (event) => {
+                event.preventDefault();
+                alert(sb.value);
+            };
+        </script>
+    </div>
+</div>
+</div>
+<div class="modal-backdrop js-modal-backdrop"></div>
+</body>
+
+</html>

@@ -1,47 +1,26 @@
-section {
-    display: block
-}
 
-body {
-    line-height: 1
-}
-
-ol,
-ul {
-    list-style: none
-}
-
-blockquote,
-q {
-    quotes: none
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-    content: "";
-    content: none
-}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0
+@import url("https://fonts.googleapis.com/css?family=Quicksand:400,500,700&subset=latin-ext");
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 
 :focus,
 :active,
 input,
 a {
-    outline: 0 !important;
-    -moz-outline-style: none !important
-}
-
-a {
+    outline: 0;
+    -moz-outline-style: none;
     background-color: transparent;
-    text-decoration: none
+    text-decoration: none;
 }
-
+ol,ul{
+    list-style: none;
+}
+p{
+    font-size: 12px;
+}
 a:active,
 a:hover {
     outline: 0
@@ -56,22 +35,10 @@ textarea {
     line-height: inherit
 }
 
-b {
-    font-weight: 700
-}
-
-i {
-    font-style: italic
-}
 
 strong {
     font-weight: 700
 }
-
-html {
-    -webkit-text-size-adjust: 100%
-}
-
 .hidden {
     display: none !important
 }
@@ -79,15 +46,6 @@ html {
 @-ms-viewport {
     width: device-width
 }
-
-.visible-xxs,
-.visible-xs,
-.visible-sm,
-.visible-md,
-.visible-lg {
-    display: none !important
-}
-
 @media (max-width:568px) {
     .visible-xxs {
         display: block !important
@@ -168,150 +126,6 @@ body {
     content: " ";
     clear: both;
     height: 0
-}
-
-@font-face {
-    font-family: "Noto Sans";
-    font-style: normal;
-    font-weight: 400;
-    src: local("Noto Sans"), local("NotoSans"), url(https://fonts.gstatic.com/s/notosans/v6/C7bP6N8yXZ-PGLzbFLtQKRJtnKITppOI_IvcXXDNrsc.woff2) format("woff2");
-    unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
-    font-display: swap
-}
-
-@font-face {
-    font-family: "Noto Sans";
-    font-style: normal;
-    font-weight: 400;
-    src: local("Noto Sans"), local("NotoSans"), url(https://fonts.gstatic.com/s/notosans/v6/iLJc6PpCnnbQjYc1Jq4v0xJtnKITppOI_IvcXXDNrsc.woff2) format("woff2");
-    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-    font-display: swap
-}
-
-@font-face {
-    font-family: "Noto Sans";
-    font-style: normal;
-    font-weight: 400;
-    src: local("Noto Sans"), local("NotoSans"), url(https://fonts.gstatic.com/s/notosans/v6/5pCv5Yz4eMu9gmvX8nNhfRJtnKITppOI_IvcXXDNrsc.woff2) format("woff2");
-    unicode-range: U+02BC, U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200B-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
-    font-display: swap
-}
-
-@font-face {
-    font-family: "Noto Sans";
-    font-style: normal;
-    font-weight: 400;
-    src: local("Noto Sans"), local("NotoSans"), url(https://fonts.gstatic.com/s/notosans/v6/gEkd0pn-sMtQ_P4HUpi6WBJtnKITppOI_IvcXXDNrsc.woff2) format("woff2");
-    unicode-range: U+1F00-1FFF;
-    font-display: swap
-}
-
-@font-face {
-    font-family: "Noto Sans";
-    font-style: normal;
-    font-weight: 400;
-    src: local("Noto Sans"), local("NotoSans"), url(https://fonts.gstatic.com/s/notosans/v6/iPF-u8L1qkTPHaKjvXERnxJtnKITppOI_IvcXXDNrsc.woff2) format("woff2");
-    unicode-range: U+0370-03FF;
-    font-display: swap
-}
-
-@font-face {
-    font-family: "Noto Sans";
-    font-style: normal;
-    font-weight: 400;
-    src: local("Noto Sans"), local("NotoSans"), url(https://fonts.gstatic.com/s/notosans/v6/mTzVK0-EJOCaJiOPeaz-hxJtnKITppOI_IvcXXDNrsc.woff2) format("woff2");
-    unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
-    font-display: swap
-}
-
-@font-face {
-    font-family: "Noto Sans";
-    font-style: normal;
-    font-weight: 400;
-    src: local("Noto Sans"), local("NotoSans"), url(https://fonts.gstatic.com/s/notosans/v6/erE3KsIWUumgD1j_Ca-V-xJtnKITppOI_IvcXXDNrsc.woff2) format("woff2");
-    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
-    font-display: swap
-}
-
-@font-face {
-    font-family: "Noto Sans";
-    font-style: normal;
-    font-weight: 400;
-    src: local("Noto Sans"), local("NotoSans"), url(https://fonts.gstatic.com/s/notosans/v6/LeFlHvsZjXu2c3ZRgBq9nFtXRa8TVwTICgirnJhmVJw.woff2) format("woff2");
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
-    font-display: swap
-}
-
-@font-face {
-    font-family: "Noto Sans";
-    font-style: normal;
-    font-weight: 700;
-    src: local("Noto Sans Bold"), local("NotoSans-Bold"), url(https://fonts.gstatic.com/s/notosans/v6/PIbvSEyHEdL91QLOQRnZ16-j2U0lmluP9RWlSytm3ho.woff2) format("woff2");
-    unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
-    font-display: swap
-}
-
-@font-face {
-    font-family: "Noto Sans";
-    font-style: normal;
-    font-weight: 700;
-    src: local("Noto Sans Bold"), local("NotoSans-Bold"), url(https://fonts.gstatic.com/s/notosans/v6/PIbvSEyHEdL91QLOQRnZ15X5f-9o1vgP2EXwfjgl7AY.woff2) format("woff2");
-    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-    font-display: swap
-}
-
-@font-face {
-    font-family: "Noto Sans";
-    font-style: normal;
-    font-weight: 700;
-    src: local("Noto Sans Bold"), local("NotoSans-Bold"), url(https://fonts.gstatic.com/s/notosans/v6/PIbvSEyHEdL91QLOQRnZ10Tj6bCwSDA5u__Fbjwz3f0.woff2) format("woff2");
-    unicode-range: U+02BC, U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200B-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
-    font-display: swap
-}
-
-@font-face {
-    font-family: "Noto Sans";
-    font-style: normal;
-    font-weight: 700;
-    src: local("Noto Sans Bold"), local("NotoSans-Bold"), url(https://fonts.gstatic.com/s/notosans/v6/PIbvSEyHEdL91QLOQRnZ1xWV49_lSm1NYrwo-zkhivY.woff2) format("woff2");
-    unicode-range: U+1F00-1FFF;
-    font-display: swap
-}
-
-@font-face {
-    font-family: "Noto Sans";
-    font-style: normal;
-    font-weight: 700;
-    src: local("Noto Sans Bold"), local("NotoSans-Bold"), url(https://fonts.gstatic.com/s/notosans/v6/PIbvSEyHEdL91QLOQRnZ16aRobkAwv3vxw3jMhVENGA.woff2) format("woff2");
-    unicode-range: U+0370-03FF;
-    font-display: swap
-}
-
-@font-face {
-    font-family: "Noto Sans";
-    font-style: normal;
-    font-weight: 700;
-    src: local("Noto Sans Bold"), local("NotoSans-Bold"), url(https://fonts.gstatic.com/s/notosans/v6/PIbvSEyHEdL91QLOQRnZ1_8zf_FOSsgRmwsS7Aa9k2w.woff2) format("woff2");
-    unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
-    font-display: swap
-}
-
-@font-face {
-    font-family: "Noto Sans";
-    font-style: normal;
-    font-weight: 700;
-    src: local("Noto Sans Bold"), local("NotoSans-Bold"), url(https://fonts.gstatic.com/s/notosans/v6/PIbvSEyHEdL91QLOQRnZ1z0LW-43aMEzIO6XUTLjad8.woff2) format("woff2");
-    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
-    font-display: swap
-}
-
-@font-face {
-    font-family: "Noto Sans";
-    font-style: normal;
-    font-weight: 700;
-    src: local("Noto Sans Bold"), local("NotoSans-Bold"), url(https://fonts.gstatic.com/s/notosans/v6/PIbvSEyHEdL91QLOQRnZ1-gdm0LZdjqr5-oayXSOefg.woff2) format("woff2");
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
-    font-display: swap
 }
 
 .my-m {
@@ -1369,11 +1183,15 @@ button {
         height: 100px
     }
 }
+@media (max-width:767px) {
+    .main-header {
+        height: 40px
+    }
 
-.main-header.is-open {
-    position: static
+    .main-header.is-open {
+        position: static
+    }
 }
-
 
 .main-header__absolute {
     position: absolute;
@@ -1999,7 +1817,6 @@ button {
     height: 32px;
     font-size: 14px;
     line-height: 18px;
-    border-radius: 10px;
     border: 0;
     padding-left: 16px;
     border-radius: 2px 0 0 2px;
@@ -2235,6 +2052,7 @@ svg.avatar-unspecified {
     display: flex;
     color: #fff;
     cursor: pointer;
+    text-decoration: none;
     z-index: 2;
     align-items: center
 }
@@ -2622,9 +2440,9 @@ svg.avatar-unspecified {
     font-family: "neo-sans", sans-serif;
     font-weight: 700;
     color: #fff;
-    border-radius: 10px;
     position: relative;
     margin: 0 3px;
+    border-radius: 10px;
     align-self: right;
     cursor: pointer;
     display: inline-flex;
@@ -2637,6 +2455,7 @@ svg.avatar-unspecified {
         font-size: 14px;
         line-height: 18px;
         margin: 0 8px 0 8px
+        
     }
 }
 
@@ -2907,6 +2726,10 @@ svg.avatar-unspecified {
     overflow: hidden;
     max-height: 0;
     transition: all .2s ease-in-out
+}
+.sub-menu{
+    background-color: #000;
+    color: #000;
 }
 
 @media (min-width:768px) {
@@ -6550,7 +6373,7 @@ div.filter .active-filter-groups {
 .games-box-content {
     min-height: 200px;
     background: #000;
-    position: absolute;
+    position: relative;
     overflow: hidden;
     height: 100%;
     max-height: calc(100vh - 290px);
@@ -7310,6 +7133,4 @@ div.filter .active-filter-groups {
 .news-item-dark .news-item-perex {
     color: #f0f3f7 !important
 }
-
-/*# sourceMappingURL=app-games.critical.min.css.map */
 </style>
